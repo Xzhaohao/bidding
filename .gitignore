@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
-/dist
+dist
+dist-ssr
+*.local
 
 
 # local env files
@@ -14,6 +16,8 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
 .vscode
 *.suo
