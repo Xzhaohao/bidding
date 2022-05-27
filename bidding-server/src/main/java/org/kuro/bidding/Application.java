@@ -11,6 +11,6 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
 
-        System.out.println("接口文档：\nhttp://localhost:8360/doc.html");
+        System.out.println("接口文档：\nhttp://localhost:8360/doc.html\n");
     }
 }

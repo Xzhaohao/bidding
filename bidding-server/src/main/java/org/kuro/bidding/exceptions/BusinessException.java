@@ -1,10 +1,10 @@
-package org.kuro.bidding.common.exceptions;
+package org.kuro.bidding.exceptions;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.kuro.bidding.common.result.ResultCode;
+import org.kuro.bidding.model.result.ResultCode;
 
 @Data
 @AllArgsConstructor

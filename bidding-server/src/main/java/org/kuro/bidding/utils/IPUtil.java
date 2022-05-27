@@ -1,4 +1,4 @@
-package org.kuro.bidding.common.utils;
+package org.kuro.bidding.utils;
 
 import javax.servlet.http.HttpServletRequest;
 

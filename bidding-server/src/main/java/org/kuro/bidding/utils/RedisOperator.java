@@ -1,4 +1,4 @@
-package org.kuro.bidding.common.utils;
+package org.kuro.bidding.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

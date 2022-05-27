@@ -1,4 +1,4 @@
-package org.kuro.bidding.common.exceptions;
+package org.kuro.bidding.exceptions;
 
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
@@ -6,8 +6,8 @@ import cn.dev33.satoken.exception.NotRoleException;
 
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import lombok.extern.slf4j.Slf4j;
-import org.kuro.bidding.common.result.Result;
-import org.kuro.bidding.common.result.ResultCode;
+import org.kuro.bidding.model.result.Result;
+import org.kuro.bidding.model.result.ResultCode;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;

@@ -1,4 +1,4 @@
-package org.kuro.bidding.common.utils;
+package org.kuro.bidding.utils;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -9,10 +9,10 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
-import org.kuro.bidding.common.exceptions.BusinessException;
-import org.kuro.bidding.common.model.extend.AliyunResource;
-import org.kuro.bidding.common.result.Result;
-import org.kuro.bidding.common.result.ResultCode;
+import org.kuro.bidding.exceptions.BusinessException;
+import org.kuro.bidding.model.extend.AliyunResource;
+import org.kuro.bidding.model.result.Result;
+import org.kuro.bidding.model.result.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
