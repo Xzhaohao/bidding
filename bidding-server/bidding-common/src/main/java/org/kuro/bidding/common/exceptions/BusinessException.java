@@ -1,9 +1,10 @@
-package org.kuro.bidding.exceptions;
+package org.kuro.bidding.common.exceptions;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.kuro.bidding.common.result.ResultCode;
 
 @Data
 @AllArgsConstructor
@@ -16,4 +17,8 @@ public class BusinessException extends RuntimeException {
     @ApiModelProperty(value = "错误信息")
     private String errMsg;
 
+    public BusinessException(ResultCode resultCode) {
+        this.code = resultCode.getCode();
+        this.errMsg = resultCode.getMessage();
+    }
 }

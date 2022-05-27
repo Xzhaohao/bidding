@@ -41,6 +41,7 @@
         <sa.token>1.30.0</sa.token>
         <sa.token.redis>1.30.0</sa.token.redis>
         <ip2region>1.7.2</ip2region>
+        <aliyu.sdk.core>4.5.3</aliyu.sdk.core>
         <aliyun.sdk.oss>3.10.2</aliyun.sdk.oss>
         <QR.code>3.5.0</QR.code>
     </properties>
@@ -99,6 +100,12 @@
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-dao-redis-jackson</artifactId>
                 <version>${sa.token.redis}</version>
+            </dependency>
+            <!-- 阿里云 sdk -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyu.sdk.core}</version>
             </dependency>
             <!-- 阿里对象存储oss -->
             <dependency>

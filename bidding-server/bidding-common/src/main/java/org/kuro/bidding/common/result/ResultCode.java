@@ -1,4 +1,6 @@
-package org.kuro.bidding.result;
+package org.kuro.bidding.common.result;
+
+import org.kuro.bidding.common.result.CustomizeResultCode;
 
 public enum ResultCode implements CustomizeResultCode {
     /* 成功 */

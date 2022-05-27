@@ -1,4 +1,4 @@
-package org.kuro.bidding.utils;
+package org.kuro.bidding.common.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -26,7 +26,6 @@ public class RedisOperator {
 
     /**
      * 判断key是否存在
-     *
      * @param key
      * @return
      */
@@ -90,7 +89,7 @@ public class RedisOperator {
      * hash 获得value
      */
     public String getHashValue(String name, String key) {
-        return (String) redisTemplate.opsForHash().get(name, key);
+        return (String)redisTemplate.opsForHash().get(name, key);
     }
 
     /**
@@ -136,7 +135,8 @@ public class RedisOperator {
      *
      * @param key
      * @param value
-     * @param timeout （以秒为单位）
+     * @param timeout
+     *            （以秒为单位）
      */
     public void set(String key, String value, long timeout) {
         redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.SECONDS);
@@ -144,7 +144,6 @@ public class RedisOperator {
 
     /**
      * 如果key不存在，则设置，如果存在，则报错
-     *
      * @param key
      * @param value
      */
@@ -154,7 +153,6 @@ public class RedisOperator {
 
     /**
      * 如果key不存在，则设置，如果存在，则报错
-     *
      * @param key
      * @param value
      */
@@ -169,12 +167,11 @@ public class RedisOperator {
      * @return value
      */
     public String get(String key) {
-        return (String) redisTemplate.opsForValue().get(key);
+        return (String)redisTemplate.opsForValue().get(key);
     }
 
     /**
      * 批量查询，对应mget
-     *
      * @param keys
      * @return
      */
@@ -184,7 +181,6 @@ public class RedisOperator {
 
     /**
      * 批量查询，管道pipeline
-     *
      * @param keys
      * @return
      */
@@ -196,7 +192,7 @@ public class RedisOperator {
         List<Object> result = redisTemplate.executePipelined(new RedisCallback<String>() {
             @Override
             public String doInRedis(RedisConnection connection) throws DataAccessException {
-                StringRedisConnection src = (StringRedisConnection) connection;
+                StringRedisConnection src = (StringRedisConnection)connection;
 
                 for (String k : keys) {
                     src.get(k);
@@ -273,7 +269,7 @@ public class RedisOperator {
      * @return 列表key的头元素。
      */
     public String lpop(String key) {
-        return (String) redisTemplate.opsForList().leftPop(key);
+        return (String)redisTemplate.opsForList().leftPop(key);
     }
 
     /**

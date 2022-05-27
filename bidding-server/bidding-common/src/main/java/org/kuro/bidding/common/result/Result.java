@@ -1,4 +1,4 @@
-package org.kuro.bidding.result;
+package org.kuro.bidding.common.result;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
