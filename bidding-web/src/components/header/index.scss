@@ -1,0 +1,68 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo {
+    height: 59px;
+  }
+
+  .el-menu {
+    width: 100%;
+    justify-content: right;
+    padding: 0 25px;
+    border-bottom: none;
+  }
+
+  // 鼠标经过 menu-item 时背景色
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    background-color: #fff;
+  }
+  // menu-item 选中后的背景色
+  .el-menu--horizontal > .el-menu-item.is-active {
+    background-color: #fff;
+  }
+
+  .choose-lang-title {
+    font-size: 22px;
+    color: #222;
+    font-weight: inherit;
+    margin: 0;
+  }
+
+  .choose-lang-container {
+    border-top: 1px solid rgb(235, 235, 235);
+    padding: 0 20px;
+  }
+
+  .lang-list {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .lang-list-item {
+      width: 24%;
+      height: 56px;
+      padding: 8px 15px;
+      vertical-align: top;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+
+      .lang-name {
+        color: #222;
+      }
+
+      .lang-country {
+        color: #717171;
+      }
+    }
+
+    .choose-lang-active {
+      border: 1px solid #31c27c;
+    }
+  }
+}

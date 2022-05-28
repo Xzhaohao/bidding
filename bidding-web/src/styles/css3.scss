@@ -883,8 +883,6 @@ $flexMid: true !default; //用于ie10 -ms前缀
   @include prefixer(margin-collapse, $value, webkit);
 }
 
-// https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-SW16
 @mixin box-reflect($reflect: below 1px) {
-  // direction  offset  mask-box-image;
   @include prefixer(box-reflect, $reflect, webkit);
 }
