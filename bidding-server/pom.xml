@@ -35,6 +35,7 @@
         <aliyu.sdk.core>4.5.3</aliyu.sdk.core>
         <aliyun.sdk.oss>3.10.2</aliyun.sdk.oss>
         <QR.code>3.5.0</QR.code>
+        <commons.io>2.6</commons.io>
     </properties>
 
     <dependencies>
@@ -132,6 +133,12 @@
             <groupId>org.lionsoul</groupId>
             <artifactId>ip2region</artifactId>
             <version>${ip2region}</version>
+        </dependency>
+        <!-- IO 操作 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io}</version>
         </dependency>
         <!-- 二维码 -->
         <dependency>
