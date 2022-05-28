@@ -18,13 +18,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve()
+      '@': path.resolve(__dirname, './src')
     }
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./src/styles/variables.scss";`
+        additionalData: `@import "@/styles/variables.scss";`
       }
     }
   }
