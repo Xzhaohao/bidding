@@ -1,17 +1,19 @@
 <template>
   <header>
-    <img src="@/assets/logo.png" alt="logo" class="logo">
+    <router-link to="/">
+      <img src="@/assets/hd_logo.png" alt="logo" class="logo">
+    </router-link>
 
     <el-menu :default-active="activeIndex" mode="horizontal">
-      <el-menu-item index="langChange" @click="changeLangMenuClick">{{ $t('message.lang') }}</el-menu-item>
-      <el-menu-item index="purchaseAnnouncement">采购公示</el-menu-item>
-      <el-menu-item index="purchaseRequirement">采购需求</el-menu-item>
-      <el-menu-item index="concludedTransactions">成交公示</el-menu-item>
-      <el-menu-item index="policies">政策法规</el-menu-item>
-      <el-menu-item index="newsInformation">新闻资讯</el-menu-item>
-      <el-menu-item index="help">帮助中心</el-menu-item>
-      <el-menu-item index="register">注册</el-menu-item>
-      <el-menu-item index="login">登陆</el-menu-item>
+      <el-menu-item index="langChange" @click="changeLangMenuClick">{{ $t('header.lang') }}</el-menu-item>
+      <el-menu-item index="purchaseAnnouncement">{{ $t('header.pAnnouncement') }}</el-menu-item>
+      <el-menu-item index="purchaseRequirement">{{ $t('header.pRequirement') }}</el-menu-item>
+      <el-menu-item index="concludedTransactions">{{ $t('header.cTransactions') }}</el-menu-item>
+      <el-menu-item index="policies">{{ $t('header.policies') }}</el-menu-item>
+      <el-menu-item index="newsInformation">{{ $t('header.news') }}</el-menu-item>
+      <el-menu-item index="help">{{ $t('header.help') }}</el-menu-item>
+      <el-menu-item index="register">{{ $t('header.register') }}</el-menu-item>
+      <el-menu-item index="login">{{ $t('header.login') }}</el-menu-item>
       <el-menu-item index="company">星海科技</el-menu-item>
     </el-menu>
 

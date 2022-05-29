@@ -1,0 +1,26 @@
+footer {
+  background-color: #f4f4f4;
+  padding: 30px;
+
+  .foot-container {
+    width: $g_width;
+    margin: 0 auto;
+
+    .footer-text {
+      color: #666;
+      margin-bottom: 19px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .foot-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > img {
+        height: 60px;
+      }
+    }
+  }
+}

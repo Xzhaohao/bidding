@@ -1,8 +1,8 @@
 export default {
-  message: {
-    // header
+  header: {
     lang: '日本語',
-
+  },
+  message: {
     home: '首页',
     mine: '个人中心'
   }

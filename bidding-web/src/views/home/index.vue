@@ -1,6 +1,6 @@
 <template>
-  <div>
-
+  <div class="home-container">
+    <section class="visual"></section>
   </div>
 </template>
 
@@ -9,5 +9,5 @@
 </script>
 
 <style scoped lang="scss">
-
+@import "index.scss";
 </style>

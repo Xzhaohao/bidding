@@ -1,10 +1,16 @@
 header {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  z-index: 100;
 
   .logo {
+    position: absolute;
     height: 59px;
+    z-index: 120;
+    top: 20px;
+    left: 15px;
   }
 
   .el-menu {
@@ -12,15 +18,26 @@ header {
     justify-content: right;
     padding: 0 25px;
     border-bottom: none;
+    background: linear-gradient(rgba( 0, 0, 100, 0.4), rgba(0, 0, 100, 0));
+
+    .el-menu-item {
+      color: #fff !important;
+      border-bottom: none;
+    }
+    .el-menu-item.is-active {
+      border-bottom: none;
+    }
   }
 
-  // 鼠标经过 menu-item 时背景色
+  // 鼠标经过 menu-item 时
   .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-    background-color: #fff;
+    font-weight: 700;
+    background: linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0));
   }
-  // menu-item 选中后的背景色
+  // menu-item 选中后
   .el-menu--horizontal > .el-menu-item.is-active {
-    background-color: #fff;
+    background: linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0));
+    font-weight: 700;
   }
 
   .choose-lang-title {
@@ -62,7 +79,7 @@ header {
     }
 
     .choose-lang-active {
-      border: 1px solid #31c27c;
+      border: 1px solid $aoColor2;
     }
   }
 }
