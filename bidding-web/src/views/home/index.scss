@@ -5,6 +5,7 @@
   height: 100%;
   min-width: 960px;
 
+  // 大背景
   .visual {
     height: 720px;
     background: url("../src/assets/main_visual2.jpeg");
@@ -12,5 +13,16 @@
     position: relative;
     background-position: center top !important;
     z-index: 0;
+
+    .notify-rule {
+      width: $g_width;
+      height: 260px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 20px;
+    }
   }
 }
