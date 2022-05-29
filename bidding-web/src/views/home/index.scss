@@ -17,12 +17,12 @@
     .notify-rule {
       width: $g_width;
       height: 260px;
-      background-color: #fff;
       position: absolute;
       bottom: -50px;
       left: 50%;
       transform: translateX(-50%);
-      padding: 20px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

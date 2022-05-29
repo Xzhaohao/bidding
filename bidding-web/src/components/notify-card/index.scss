@@ -1,0 +1,20 @@
+.card-container {
+  width: 570px;
+  background: rgba(255, 255, 255, .9);
+  border-radius: 6px;
+  padding: 10px 15px;
+  box-shadow: 0 0 7px #0003;
+  height: 260px;
+
+  ul {
+    li {
+      height: 40px;
+      line-height: 40px;
+      padding-right: 20px;
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}
