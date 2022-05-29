@@ -17,7 +17,7 @@ const route = useRoute()
 onMounted(() => {
   document.body.style.setProperty('--el-color-primary', '#9b63ee');
   document.body.style.setProperty('--el-menu-active-color', '#9b63ee');
-  document.body.style.setProperty('--el-link-hover-text-color', '#9b63ee');
+  document.body.style.setProperty('--el-color-primary-light-3', '#c68bf9');
 })
 </script>
 

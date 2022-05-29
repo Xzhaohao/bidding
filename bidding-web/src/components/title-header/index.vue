@@ -1,5 +1,5 @@
 <template>
-  <div class="title-header">
+  <div class="title-header" :class="{'padding-lr': padding}">
     <div class="left">
       <div class="line"></div>
       <h2 class="title">{{ title }}</h2>
@@ -18,10 +18,20 @@ defineProps({
   },
   link: {
     type: String
+  },
+  padding: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
 
 <style scoped lang="scss">
 @import "index.scss";
+</style>
+
+<style>
+.title-header .el-link__inner {
+  display: flex;
+}
 </style>

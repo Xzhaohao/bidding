@@ -10,6 +10,10 @@ export default {
     register: '注册',
     login: '登陆'
   },
+  card: {
+    cTransactions: '成交公示',
+    policies: '政策法规',
+  },
   message: {
     home: '首页',
     mine: '个人中心'

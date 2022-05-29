@@ -7,13 +7,14 @@
 
   // 大背景
   .visual {
-    height: 720px;
+    height: 780px;
     background: url("../src/assets/main_visual2.jpeg");
     background-size: cover;
     position: relative;
     background-position: center top !important;
     z-index: 0;
 
+    // 成交公示 和 政策法规
     .notify-rule {
       width: $g_width;
       height: 260px;
@@ -24,5 +25,59 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  // 采购公示
+  .p-announcement {
+    @include main-wapper(0);
+    padding: 80px 0 20px;
+
+    .card-list-container {
+      margin-top: 10px;
+
+      .el-card {
+        margin-bottom: 20px;
+      }
+
+      .is-link {
+        white-space: normal;
+        text-align: left;
+        color: #333;
+        height: 60px;
+
+        &:hover {
+          color: $aoColor2 !important;
+        }
+      }
+
+      .card-list-item-title {
+        font-size: 16px;
+      }
+
+      .card-list-item-body-hd {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.02);
+        color: rgb(51, 51, 51);
+        font-size: 14px;
+        border-bottom: 1px dashed #ddd;
+      }
+
+      .card-list-item-body-ft {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .audit-status {
+          color: #909399;
+        }
+      }
+    }
+  }
+
+  // 采购需求
+  .p-required {
+    @include main-wapper(0);
+    padding: 30px 0 80px;
   }
 }

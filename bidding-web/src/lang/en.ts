@@ -10,6 +10,10 @@ export default {
     register: 'register',
     login: 'login'
   },
+  card: {
+    cTransactions: 'concluded transactions',
+    policies: 'policies and regulations',
+  },
   message: {
     home: 'home',
     mine: 'mine'
