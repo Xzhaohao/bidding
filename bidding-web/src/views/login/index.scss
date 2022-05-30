@@ -1,0 +1,85 @@
+.login-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #FFF no-repeat 50% url("../../assets/login_bg.png");
+  background-size: 2560px 1490px;
+  overflow: hidden;
+
+  .login-bg-p1 {
+    position: absolute;
+    max-width: 568px;
+    left: 320px;
+    top: 320px;
+    opacity: .4;
+  }
+
+  .login-bg-p2 {
+    position: absolute;
+    max-width: 320px;
+    right: 490px;
+    top: 20px;
+    opacity: .4;
+  }
+
+  .login-box {
+    @include center-xy(440px);
+    background: hsla(0, 0%, 100%, .5);
+    overflow: hidden;
+    border: 1.5px solid #fff;
+    border-radius: 8px;
+    backdrop-filter: blur(30px);
+    padding: 30px;
+
+    // 登陆标题部分
+    .login-box-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 33px;
+      margin: 0 0 30px;
+      color: #202d40;
+      font-size: 24px;
+      font-weight: 600;
+
+      > span {
+        height: 20px;
+        color: #8592a5;
+        font-size: 14px;
+        font-weight: 400;
+
+        > a {
+          color: $aoColor2;
+        }
+      }
+    }
+
+    // 记住登陆状态部分
+    .remember {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      a {
+        font-size: 14px;
+        color: $aoColor2;
+      }
+
+      .help {
+        display: inline-flex;
+        align-items: center;
+
+        .el-icon {
+          margin-left: 3px;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .code-img {
+      width: 100%;
+      display: flex;
+    }
+  }
+}
