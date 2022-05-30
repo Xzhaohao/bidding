@@ -54,12 +54,12 @@
 
     <!-- 采购需求 -->
     <section class="p-required">
-      <title-header title="采购公示" link="/404" padding/>
+      <title-header title="采购需求" link="/404" padding/>
 
       <el-table
           :data="tableData"
           stripe size="large"
-          style="width: 100%"
+          style="width: 100%; margin-top: 10px;"
           :header-cell-style="{background: '#ECF1FE', color: '#7a43b6'}"
       >
         <el-table-column prop="name" label="名称"/>
