@@ -1,10 +1,10 @@
 <template>
   <header>
     <router-link to="/">
-      <img src="@/assets/hd_logo.png" alt="logo" class="logo">
+      <img :src="logo" alt="logo" class="logo" :style="logoStyle">
     </router-link>
 
-    <el-menu :default-active="activeIndex" mode="horizontal">
+    <el-menu :default-active="activeIndex" mode="horizontal" :class="{'menu-dark-bg': menuDark}">
       <el-menu-item index="langChange" @click="changeLangMenuClick">{{ $t('header.lang') }}</el-menu-item>
       <el-menu-item index="purchaseAnnouncement">{{ $t('header.pAnnouncement') }}</el-menu-item>
       <el-menu-item index="purchaseRequirement">{{ $t('header.pRequirement') }}</el-menu-item>
@@ -25,7 +25,7 @@
         <ul class="lang-list">
           <li
               class="lang-list-item"
-              :class="{'choose-lang-active': item.type === 'zh'}"
+              :class="{'choose-lang-active': item.type === language}"
               v-for="item in langArr"
               :key="item.name"
               @click="langItemClicked(item.type)"
@@ -40,39 +40,70 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue'
-import { langArr } from '../../constant/lang-list'
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import en from 'element-plus/lib/locale/lang/en'
-import ja from 'element-plus/lib/locale/lang/ja'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import { langArr } from '../../constant'
 
 const activeIndex = ref('1')
 const langChangeVisible = ref(false)
 
-const emit = defineEmits<{
-  (e: 'changeLang', language: any): void
-}>()
+// 首页与非首页的样式不同
+const logo = ref('/src/assets/hd_logo.png')
+const logoStyle = ref({ top: '20px', left: '15px' })
+const menuDark = ref(true)
+const menuItemSelectedBg = ref('linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0))')
+const route = useRoute()
+if (route.fullPath !== '/') {
+  logo.value = '/src/assets/logo.png'
+  logoStyle.value = { top: '0px', left: '0px' }
+  menuDark.value = false
+  menuItemSelectedBg.value = '#FFFFFF'
+} else {
+  logo.value = '/src/assets/hd_logo.png'
+  logoStyle.value = { top: '20px', left: '15px' }
+  menuDark.value = true
+  menuItemSelectedBg.value = 'linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0))'
+}
+
+const language = computed(() => store.getters.language)
 
 // 点击切换语言菜单触发的事件
 function changeLangMenuClick() {
   langChangeVisible.value = true
 }
 
+const store = useStore()
+const i18n = useI18n()
+
 // 具体的语言项被点击时触发的事件
 function langItemClicked(type: string) {
-  if (type === 'zh' || type === 'zh1') {
-    emit('changeLang', zhCn)
-  } else if (type === 'en') {
-    emit('changeLang', en)
-  } else if (type === 'ja') {
-    emit('changeLang', ja)
-  }
+  if (type === 'zh' || type === 'zh1') type = 'zh'
+  i18n.locale.value = type
+  store.commit('app/setLanguage', type)
   langChangeVisible.value = false
 }
+
+const notHomeItemHoverColor = ref('#9b63ee')
 </script>
 
 <style scoped lang="scss">
 @import "index.scss";
+
+// vue3支持 使用 v-bind 绑定 script 的样式
+
+// 鼠标经过 menu-item 时
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  font-weight: 700;
+  background: v-bind(menuItemSelectedBg);
+  color: v-bind(notHomeItemHoverColor);
+}
+// menu-item 选中后
+.el-menu--horizontal > .el-menu-item.is-active {
+  background: v-bind(menuItemSelectedBg);
+  font-weight: 700;
+}
 </style>
 
 <style>

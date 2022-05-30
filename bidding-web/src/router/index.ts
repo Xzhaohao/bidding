@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: () => import('@/views/home/index.vue'),
     meta: {
-      title: '',
+      title: '招投标平台',
       keepAlive: false
     }
   },
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Mine',
     component: () => import('@/views/mine/index.vue'),
     meta: {
-      title: '',
+      title: '个人中心',
       keepAlive: false
     }
   },
@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Login',
     component: () => import('@/views/login/index.vue'),
     meta: {
-      title: '',
+      title: '登陆-招投标平台',
       keepAlive: false
     }
   },
@@ -39,6 +39,14 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    // @ts-ignore
+    document.title = to.meta.title
+  }
+  next()
 })
 
 export default router

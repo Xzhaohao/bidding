@@ -1,4 +1,6 @@
 <template>
+  <com-header/>
+
   <div class="home-container">
     <!-- 大背景 -->
     <section class="visual">
@@ -71,10 +73,14 @@
       </el-table>
     </section>
   </div>
+
+  <com-footer/>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import ComHeader from '@/components/header/index.vue'
+import ComFooter from '@/components/footer/index.vue'
 import NotifyCard from '@/components/notify-card/index.vue'
 import TitleHeader from '@/components/title-header/index.vue'
 

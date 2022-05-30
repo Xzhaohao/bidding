@@ -4,6 +4,10 @@
   white-space: nowrap;
 }
 
+@mixin page-main {
+  min-height: calc(100vh - 200px);
+}
+
 // 多行文本超过行数显示省略号
 @mixin text-overflow($line:1) {
   display: -webkit-box;

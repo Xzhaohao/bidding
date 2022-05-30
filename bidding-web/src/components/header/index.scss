@@ -9,8 +9,19 @@ header {
     position: absolute;
     height: 59px;
     z-index: 120;
-    top: 20px;
-    left: 15px;
+  }
+
+  .menu-dark-bg {
+    background: linear-gradient(rgba( 0, 0, 100, 0.4), rgba(0, 0, 100, 0));
+
+    .el-menu-item {
+      color: #fff !important;
+      border-bottom: none;
+    }
+
+    .el-menu-item.is-active {
+      border-bottom: none;
+    }
   }
 
   .el-menu {
@@ -18,26 +29,6 @@ header {
     justify-content: right;
     padding: 0 25px;
     border-bottom: none;
-    background: linear-gradient(rgba( 0, 0, 100, 0.4), rgba(0, 0, 100, 0));
-
-    .el-menu-item {
-      color: #fff !important;
-      border-bottom: none;
-    }
-    .el-menu-item.is-active {
-      border-bottom: none;
-    }
-  }
-
-  // 鼠标经过 menu-item 时
-  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-    font-weight: 700;
-    background: linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0));
-  }
-  // menu-item 选中后
-  .el-menu--horizontal > .el-menu-item.is-active {
-    background: linear-gradient(rgba(155, 99, 238, 0.6), rgba(155, 99, 238, 0));
-    font-weight: 700;
   }
 
   .choose-lang-title {
