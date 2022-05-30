@@ -1,0 +1,25 @@
+.register-form {
+  .sms-code {
+    width: 100%;
+    display: flex;
+
+    .el-button {
+      min-width: 140px;
+      margin-left: 20px;
+    }
+  }
+
+  .accept {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    > a {
+      color: $aoColor2;
+    }
+
+    > span {
+      color: #606266;
+    }
+  }
+}
