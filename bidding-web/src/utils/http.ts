@@ -4,7 +4,7 @@ import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
 
 const request = axios.create({
-  baseURL: process.env.VUE_APP_SERVER,
+  baseURL: '/', // process.env.VUE_APP_SERVER,
   timeout: 5000,
   headers: {
     Accept: 'application/json, text/plain, */*',
@@ -16,10 +16,8 @@ const request = axios.create({
 request.interceptors.request.use((config: AxiosRequestConfig) => {
   NProgress.start()
   const token = window.sessionStorage.getItem('token')
-  if (token) {
-    // @ts-ignore
-    config.headers.Authorization = token
-  }
+  // @ts-ignore
+  if (token) config.headers.Authorization = token
   return config
 }, error => Promise.reject(error))
 

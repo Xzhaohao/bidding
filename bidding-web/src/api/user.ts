@@ -1,17 +1,19 @@
 import request from '../utils/http'
-import { ElMessage } from 'element-plus'
 
-class User {
-  static async login(data: any) {
-    const { data: result } = await request({
-      url: '/pub/user/login',
-      method: 'post',
-      data
-    })
+// 登陆
+export const loginApi = (data: object) => request({
+  url: '/user/login',
+  method: 'POST',
+  data
+})
 
-    if (!result.status) return ElMessage(result.message)
-    // ...
-  }
-}
+// 获取用户信息
+export const fetchUserInfoApi = () => request({
+  url: '/user/profile'
+})
 
-export default User
+// 退出登陆
+export const logoutApi = () => request({
+  url: '/user/logout',
+  method: 'POST'
+})
