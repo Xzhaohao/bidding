@@ -18,10 +18,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import LoginForm from './components/Login.vue'
 import RegisterForm from './components/Register.vue'
 
-const isLogin = ref(true)
+const route = useRoute()
+const isLogin = ref(route.query.type === '1')
 const changeForm = () => {
   isLogin.value = !isLogin.value
 }

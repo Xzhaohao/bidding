@@ -1,0 +1,45 @@
+.help-container {
+  @include page-main;
+  background: #FFF url("../../assets/bg_pattern.png") center top repeat;
+
+  .help-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: $helpText;
+    margin-bottom: 20px;
+  }
+
+  .file-download {
+    width: 800px;
+    margin: 20px auto 40px;
+
+    li {
+      height: 30px;
+
+      > a {
+        color: $helpText;
+
+        &:hover {
+          color: $aoColor2;
+        }
+      }
+    }
+  }
+
+  .suggestion {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+
+:deep(.el-menu) {
+  background-color: transparent !important;
+}
+
+:deep(.el-textarea__inner) {
+  background-color: transparent !important;
+}
+
+:deep(.el-input__wrapper) {
+  background-color: transparent !important;
+}

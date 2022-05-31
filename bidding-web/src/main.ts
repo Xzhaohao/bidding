@@ -7,7 +7,7 @@ import ElementPlus, { ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-import i18n from './lang/i18n'
+import i18n from './i18n'
 
 const app = createApp(App)
 

@@ -1,6 +1,6 @@
 // import { ref } from 'vue'
-// import { useI18n } from 'vue-i18n'
-// import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+// import { useI18n } from 'vue-index'
+// import zhCn from 'element-plus/lib/locale/index/zh-cn'
 //
 // const locale = ref(zhCn)
 // const { locale: localeLanguage } = useI18n()

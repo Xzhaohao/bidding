@@ -38,6 +38,51 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path: '/purchase',
+    name: 'Purchase',
+    component: () => import('@/views/purchase/index.vue'),
+    meta: {
+      title: '采购需求-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/notice',
+    name: 'Notice',
+    component: () => import('@/views/notice/index.vue'),
+    meta: {
+      title: '成交公示-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/policy',
+    name: 'Policy',
+    component: () => import('@/views/policy/index.vue'),
+    meta: {
+      title: '政策法规-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/news',
+    name: 'News',
+    component: () => import('@/views/news/index.vue'),
+    meta: {
+      title: '新闻资讯-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: () => import('@/views/help/index.vue'),
+    meta: {
+      title: '帮助中心-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
     path: '/:catchAll(.*)',
     name: '/404',
     component: () => import('@/views/404.vue')
