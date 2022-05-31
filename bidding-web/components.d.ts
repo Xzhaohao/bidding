@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     Header: typeof import('./src/components/header/index.vue')['default']
     LangDialog: typeof import('./src/components/lang-dialog/index.vue')['default']
     NotifyCard: typeof import('./src/components/notify-card/index.vue')['default']
+    Pagination: typeof import('./src/components/Pagination/index.vue')['default']
     RadioButton: typeof import('./src/components/radio-button/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

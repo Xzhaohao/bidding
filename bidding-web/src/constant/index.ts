@@ -14,6 +14,9 @@ export const bidTime = ['不限', '近一周', '近一个月', '近三个月', '
 // 国际化
 export const LANG = 'language'
 
+// 顶部菜单
+export const MENU = 'home_menu'
+
 export const TOKEN = 'token'
 
 // token时间戳

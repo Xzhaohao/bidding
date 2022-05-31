@@ -28,10 +28,12 @@
     </section>
 
     <section class="bid-pagination">
-      <el-pagination
+      <pagination
           layout="total, prev, pager, next, jumper"
-          :total="100"
-          background
+          :total="20"
+          :page.sync="1"
+          :limit.sync="9"
+          @pagination="() => {}"
       />
     </section>
   </div>
@@ -45,6 +47,7 @@ import ComHeader from '@/components/header/index.vue'
 import ComFooter from '@/components/footer/index.vue'
 import RadioButton from '@/components/radio-button/index.vue'
 import BidCard from '@/components/bid-card/index.vue'
+import Pagination from '@/components/Pagination/index.vue'
 
 </script>
 
