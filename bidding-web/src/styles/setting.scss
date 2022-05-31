@@ -4,13 +4,6 @@
 //-----------------------------------------------------
 
 
-// 开关设置
-//-----------------------------------------------------
-$lte7:                  true !default; //是否兼容ie6-7
-$filter:                false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景
-$printStyleSwitch:      false !default; //是否开启打印样式
-
-
 // font相关
 //-----------------------------------------------------
 $baseFontSize:          14px !default;
@@ -27,11 +20,6 @@ $baseGap:               20px !default;
 
 
 // 基本颜色
-// color function : http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
-// lighten($color, $amount)
-// darken($color, $amount)
-// opacify($color, $amount)
-// mix($color1, $color2[, $amount])
 //-----------------------------------------------------
 $black:                 #000 !default;
 $grayDarker:            #333 !default;
@@ -97,15 +85,6 @@ $aoColor8:  #cb1bff;
 //-----------------------------------------------------
 $baseRadius:            5px !default;
 $smallRadius:           3px !default;
-
-
-// z-index
-//-----------------------------------------------------
-$zindexDropdown:        1000 !default;
-$zindexFixedTopbar:     1010 !default;
-$zindexTooltip:         1020 !default;
-$zindexAlert:           1030 !default;
-$zindexModal:           1100 !default;
 
 
 $g_width:   1200px;

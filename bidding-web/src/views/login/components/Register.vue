@@ -31,7 +31,7 @@
 import { ref } from 'vue'
 import { registerForm, registerRules } from './validators-register'
 
-const accept = ref(true)
+const accept = ref(false)
 </script>
 
 <style scoped lang="scss">

@@ -4,7 +4,7 @@ import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
 
 const request = axios.create({
-  baseURL: '/', // process.env.VUE_APP_SERVER,
+  baseURL: process.env.baseURL,
   timeout: 5000,
   headers: {
     Accept: 'application/json, text/plain, */*',
