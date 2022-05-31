@@ -12,12 +12,6 @@ onMounted(() => {
 
 <template>
   <el-config-provider :locale="zhCn">
-<!--    <com-header v-if="!route.fullPath.includes('login')" @changeLang="changeLang"/>-->
-<!--    <div class="app-container">-->
-<!--      <router-view/>-->
-<!--    </div>-->
-<!--    <com-footer v-if="!route.fullPath.includes('login')"/>-->
-
     <router-view/>
   </el-config-provider>
 </template>

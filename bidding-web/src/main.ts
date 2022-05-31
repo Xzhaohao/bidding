@@ -22,3 +22,17 @@ app.use(router)
   .use(ElementPlus)
   .use(i18n)
   .mount('#app')
+
+// export function createApp() {
+//   const app = createSSRApp(App)
+//   app.config.globalProperties.$message = ElMessage
+//
+//   for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//     app.component(key, component)
+//   }
+//
+//   app.use(router)
+//   app.use(ElementPlus)
+//
+//   return { app, router }
+// }
