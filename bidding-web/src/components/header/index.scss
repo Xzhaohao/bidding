@@ -12,7 +12,7 @@ header {
   }
 
   .menu-dark-bg {
-    background: linear-gradient(rgba( 0, 0, 100, 0.4), rgba(0, 0, 100, 0));
+    background: linear-gradient(rgba(0, 0, 100, 0.4), rgba(0, 0, 100, 0));
 
     .el-menu-item {
       color: #fff !important;
@@ -72,5 +72,18 @@ header {
     .choose-lang-active {
       border: 1px solid $aoColor2;
     }
+  }
+
+  :deep(.el-dialog__body) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  :deep(.el-dialog) {
+    border-radius: 8px;
+  }
+
+  :deep(.el-dialog__header) {
+    height: 40px;
   }
 }

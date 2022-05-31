@@ -27,6 +27,10 @@
     height: 22px;
     font-weight: 700;
   }
+
+  :deep(.el-link__inner) {
+    display: flex;
+  }
 }
 
 .padding-lr {

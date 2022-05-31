@@ -17,4 +17,10 @@
       }
     }
   }
+
+  :deep(.el-link__inner) {
+    display: block;
+    width: 100%;
+    @include line-text-overflow;
+  }
 }

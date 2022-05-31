@@ -24,7 +24,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Login',
     component: () => import('@/views/login/index.vue'),
     meta: {
-      title: '登陆-招投标平台',
+      title: '登陆注册-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/bid',
+    name: 'Bid',
+    component: () => import('@/views/bid/index.vue'),
+    meta: {
+      title: '采购公示-招投标平台',
       keepAlive: false
     }
   },

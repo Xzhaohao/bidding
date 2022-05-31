@@ -1,0 +1,50 @@
+.bid-container {
+  @include page-main;
+  padding-top: 60px;
+
+  .bid-banner {
+    background: url("../../assets/banner_bg.png") no-repeat center;
+    height: 200px;
+    color: $white;
+    font-size: 45px;
+    text-align: center;
+    line-height: 200px;
+
+    > span {
+      color: #ffe400;
+    }
+  }
+
+  // 条件选择框
+  .choose-box {
+    width: $g_width;
+    border: 1px solid #F0F0F0;
+    margin: 29px auto 20px;
+    border-radius: $smallRadius;
+    font-size: 14px;
+    color: $grayDarker;
+
+    .choose-cell {
+      display: flex;
+      align-items: center;
+      padding: 20px 20px 10px;
+
+      .choose-cell-bd {
+        width: 100px;
+      }
+    }
+  }
+
+  // 招标项目列表
+  .bid-main {
+    @include main-wapper(0);
+  }
+
+  // 分页
+  .bid-pagination {
+    @include main-wapper(20px);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+}

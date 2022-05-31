@@ -22,4 +22,8 @@
       color: #606266;
     }
   }
+
+  :deep(.el-checkbox__label) {
+    font-weight: 400;
+  }
 }

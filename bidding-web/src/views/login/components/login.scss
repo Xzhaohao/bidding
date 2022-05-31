@@ -26,4 +26,8 @@
     width: 100%;
     display: flex;
   }
+
+  :deep(.el-checkbox__label) {
+    font-weight: 400;
+  }
 }

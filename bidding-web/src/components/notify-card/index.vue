@@ -30,11 +30,3 @@ defineProps({
 <style scoped lang="scss">
 @import "index.scss";
 </style>
-
-<style lang="scss">
-.card-container .el-link__inner {
-  display: block;
-  width: 100%;
-  @include line-text-overflow;
-}
-</style>

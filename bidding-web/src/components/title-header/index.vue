@@ -29,9 +29,3 @@ defineProps({
 <style scoped lang="scss">
 @import "index.scss";
 </style>
-
-<style>
-.title-header .el-link__inner {
-  display: flex;
-}
-</style>

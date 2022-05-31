@@ -12,9 +12,9 @@
       <el-menu-item index="policies">{{ $t('header.policies') }}</el-menu-item>
       <el-menu-item index="newsInformation">{{ $t('header.news') }}</el-menu-item>
       <el-menu-item index="help">{{ $t('header.help') }}</el-menu-item>
-      <el-menu-item index="register">{{ $t('header.register') }}</el-menu-item>
-      <el-menu-item index="login">{{ $t('header.login') }}</el-menu-item>
-      <el-menu-item index="company">星海科技</el-menu-item>
+      <el-menu-item index="register" v-if="!store.getters.hasUserInfo">{{ $t('header.register') }}</el-menu-item>
+      <el-menu-item index="login" v-if="!store.getters.hasUserInfo">{{ $t('header.login') }}</el-menu-item>
+      <el-menu-item index="company" v-if="store.getters.hasUserInfo">星海科技</el-menu-item>
     </el-menu>
 
     <el-dialog v-model="langChangeVisible" width="50%">
@@ -103,20 +103,5 @@ const notHomeItemHoverColor = ref('#9b63ee')
 .el-menu--horizontal > .el-menu-item.is-active {
   background: v-bind(menuItemSelectedBg);
   font-weight: 700;
-}
-</style>
-
-<style>
-header .el-dialog__body {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-header .el-dialog {
-  border-radius: 8px;
-}
-
-header .el-dialog__header {
-  height: 40px;
 }
 </style>

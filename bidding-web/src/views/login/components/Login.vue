@@ -37,9 +37,3 @@ import { loginForm, loginRules } from './validators-login'
 <style scoped lang="scss">
 @import "login";
 </style>
-
-<style>
-.login-form .remember .el-checkbox__label {
-  font-weight: 400;
-}
-</style>

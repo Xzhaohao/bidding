@@ -17,39 +17,7 @@
 
       <el-row class="card-list-container" :gutter="20">
         <el-col :span="8" v-for="i in 6">
-          <el-card shadow="hover">
-            <template #header>
-              <el-tooltip effect="dark" content="中国—东盟信息港股份有限公司新大楼办公场所工位扩容强弱电改造采购项目" placement="top">
-                <el-button link>
-                  <h3 class="card-list-item-title">中国—东盟信息港股份有限公司新大楼办公场所工位扩容强弱电改造采购项目</h3>
-                </el-button>
-              </el-tooltip>
-            </template>
-            <div>
-              <div class="card-list-item-body-hd">
-                <el-row>
-                  <el-col :span="9">项目编号</el-col>
-                  <el-col :span="15">0747-2260SCCGX089</el-col>
-                </el-row>
-                <el-row>
-                  <el-col :span="9">招标方式</el-col>
-                  <el-col :span="15">竞争性谈判</el-col>
-                </el-row>
-                <el-row>
-                  <el-col :span="9">项目编号</el-col>
-                  <el-col :span="15">0747-2260SCCGX089</el-col>
-                </el-row>
-                <el-row>
-                  <el-col :span="9">项目编号</el-col>
-                  <el-col :span="15">0747-2260SCCGX089</el-col>
-                </el-row>
-              </div>
-              <div class="card-list-item-body-ft">
-                <el-button type="primary">竞谈答复</el-button>
-                <div class="audit-status">已公示</div>
-              </div>
-            </div>
-          </el-card>
+          <bid-card />
         </el-col>
       </el-row>
     </section>
@@ -83,6 +51,7 @@ import ComHeader from '@/components/header/index.vue'
 import ComFooter from '@/components/footer/index.vue'
 import NotifyCard from '@/components/notify-card/index.vue'
 import TitleHeader from '@/components/title-header/index.vue'
+import BidCard from '@/components/bid-card/index.vue'
 
 const list = ref([
   { title: '中国—东盟信息港股份有限公司智能化网络设备采购项目 竞争性谈判公告竞争性谈判公告竞争性谈判', link: '/404' },
@@ -108,15 +77,4 @@ const tableData = [
 
 <style scoped lang="scss">
 @import "index.scss";
-</style>
-
-<style>
-.home-container .p-announcement .card-list-container .el-card__header {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.home-container .p-announcement .card-list-container .el-card__body {
-  padding: 0;
-}
 </style>

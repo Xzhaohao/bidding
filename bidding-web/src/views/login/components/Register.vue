@@ -37,9 +37,3 @@ const accept = ref(false)
 <style scoped lang="scss">
 @import "register";
 </style>
-
-<style>
-.register-form .accept .el-checkbox__label {
-  font-weight: 400;
-}
-</style>
