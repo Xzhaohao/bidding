@@ -13,6 +13,7 @@ export default {
       setItem(LANG, lang)
       state.language = lang
     },
+    // 设置当前选择的菜单
     setSelectedMenu(state: any, menu: string) {
       setItem(MENU, menu)
       state.selectedMenu = menu

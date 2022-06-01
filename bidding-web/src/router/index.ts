@@ -96,10 +96,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    // @ts-ignore
-    document.title = to.meta.title
-  }
+  // @ts-ignore
+  if (to.meta.title)  document.title = to.meta.title
+
   next()
 })
 

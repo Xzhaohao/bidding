@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { bidTypes, bidStatus, bidTime } from '../../constant'
 import ComHeader from '@/components/header/index.vue'
-import ComFooter from '@/components/footer/index.vue'
+import ComFooter from '../../components/footer/'
 import RadioButton from '@/components/radio-button/index.vue'
 import BidCard from '@/components/bid-card/index.vue'
 import Pagination from '@/components/Pagination/index.vue'

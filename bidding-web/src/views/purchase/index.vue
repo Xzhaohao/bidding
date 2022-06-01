@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import ComHeader from '@/components/header/index.vue'
-import ComFooter from '@/components/footer/index.vue'
+import ComFooter from '../../components/footer/'
 </script>
 
 <style scoped lang="scss">

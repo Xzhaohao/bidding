@@ -40,12 +40,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
 import { langArr } from '../../constant'
+import { getItem } from '../../utils/storage'
+import { MENU } from '../../constant'
 import useHeaderStyle from './useHeaderStyle'
 import useLangChange from './useLangChange'
 import useMenuSelected from './useMenuSelected'
+
+// 监听路由变化
+const route = useRoute()
+watch(route, () => {
+  const routeName = route.path.replace(/\//g,'')
+  if (routeName !== getItem(MENU)) {
+    store.commit('app/setSelectedMenu', routeName)
+  }
+})
 
 // 样式相关
 const { logo, logoStyle, menuDark, menuItemSelectedBg } = useHeaderStyle()

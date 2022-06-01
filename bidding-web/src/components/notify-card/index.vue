@@ -11,18 +11,21 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, PropType } from 'vue'
 import TitleHeader from '@/components/title-header/index.vue'
 
 defineProps({
   title: {
-    type: String
+    type: String as PropType<string>,
+    required: true
   },
   link: {
-    type: String
+    type: String as PropType<string>,
+    required: true
   },
   list: {
-    type: Array
+    type: Array as PropType<Array<any>>,
+    default: []
   }
 })
 </script>

@@ -24,6 +24,8 @@ export default ({ mode }) => {
       }
     },
     css: {
+      // @ts-ignore
+      requireModuleExtension: true,
       preprocessorOptions: {
         scss: {
           additionalData: `@import "@/styles/variables.scss";`
