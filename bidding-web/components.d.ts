@@ -5,6 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ArticleCard: typeof import('./src/components/article-card/index.vue')['default']
     ArticleItem: typeof import('./src/components/article-item/index.vue')['default']
     BidCard: typeof import('./src/components/bid-card/index.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']

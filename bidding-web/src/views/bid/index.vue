@@ -28,7 +28,7 @@
     </section>
 
     <section class="bid-pagination">
-      <pagination
+      <Pagination
           layout="total, prev, pager, next, jumper"
           :total="20"
           :page.sync="1"

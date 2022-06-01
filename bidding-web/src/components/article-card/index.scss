@@ -1,0 +1,68 @@
+.article-card {
+  width: 100%;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  max-width: 100%;
+  border-radius: $smallRadius;
+  margin: 30px 0;
+  text-decoration: none;
+
+  > a {
+    width: 100%;
+    display: block;
+    transition: all 0.45s ease;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    .card-thumbnail {
+      padding: 10px;
+      float: left;
+
+      > img {
+        width: 196px;
+        height: 135px;
+      }
+    }
+
+    .card-content {
+      padding: 10px 10px 0 0;
+
+      .card-title {
+        color: $black;
+        font-size: 17px;
+        font-weight: bold;
+      }
+
+      .card-time {
+        font-size: 13px;
+        color: #AAAAAA;
+        padding: 8px 0;
+
+        > span {
+          padding: 0 5px;
+          color: $white;
+          background-color: #AAAAAA;
+          overflow: hidden;
+          border-radius: $smallRadius;
+        }
+      }
+
+      .card-excerpt {
+        color: $grayDarker;
+        font-size: 14px;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}

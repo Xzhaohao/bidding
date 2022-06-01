@@ -1,5 +1,17 @@
 <template>
+  <div class="article-card">
+    <a href="javascript:;">
+      <div class="card-thumbnail">
+        <img src="@/assets/thumbnail-392x270.jpeg" alt="thumbnail">
+      </div>
 
+      <div class="card-content">
+        <p class="card-title">{{ title }}</p>
+        <p class="card-time">{{ time }} ／ <span>{{ author }}</span></p>
+        <div class="card-excerpt">{{ summary }}</div>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script setup lang="ts">
