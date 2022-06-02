@@ -4,8 +4,7 @@ export default {
     pAnnouncement: '采购公示',
     pRequirement: '采购需求',
     cTransactions: '成交公示',
-    policies: '政策法规',
-    news: '新闻资讯',
+    news: '新闻政策',
     help: '帮助中心',
     register: '注册',
     login: '登陆'

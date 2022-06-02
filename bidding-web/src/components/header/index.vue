@@ -9,7 +9,6 @@
       <el-menu-item index="bid">{{ $t('header.pAnnouncement') }}</el-menu-item>
       <el-menu-item index="purchase">{{ $t('header.pRequirement') }}</el-menu-item>
       <el-menu-item index="notice">{{ $t('header.cTransactions') }}</el-menu-item>
-      <el-menu-item index="policy">{{ $t('header.policies') }}</el-menu-item>
       <el-menu-item index="news">{{ $t('header.news') }}</el-menu-item>
       <el-menu-item index="help">{{ $t('header.help') }}</el-menu-item>
       <el-menu-item index="login?type=1" v-if="!store.getters.hasUserInfo">{{ $t('header.login') }}</el-menu-item>

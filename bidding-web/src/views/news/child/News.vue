@@ -30,5 +30,6 @@ import Pagination from '@/components/Pagination/index.vue'
 </script>
 
 <style scoped lang="scss">
+@import "com-style";
 @import "news";
 </style>

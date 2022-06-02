@@ -1,24 +1,9 @@
 .news-warp {
-  background: #fafafa;
-  margin: 30px 0 80px;
-  padding: 35px 30px 0;
-  position: relative;
-  border-radius: 15px;
+  @include com-warp;
 
   > h2 {
-    position: absolute;
-    width: 282px;
-    height: 34px;
-    left: 110px;
-    top: -20px;
-    z-index: 1;
-    color: $white;
-    font-size: 20px;
-    padding-left: 45px;
-    line-height: 34px;
-    font-style: italic;
-    -webkit-font-smoothing: subpixel-antialiased;
-    background: url('../../../assets/article_bg_headline.png') no-repeat center center;
+    @include com-title;
+    background: url('../../../assets/news_title_headline.png') no-repeat center center;
     background-size: 282px auto;
   }
 

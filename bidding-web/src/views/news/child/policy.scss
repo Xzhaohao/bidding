@@ -1,3 +1,45 @@
 .policy-warp {
+  @include com-warp;
+  background-color: #ffffff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 20%);
 
+  > h2 {
+    @include com-title;
+    background: url('../../../assets/news_title_headline.png') no-repeat center center;
+    background-size: 282px auto;
+  }
+
+  .policy-list {
+    padding-bottom: 22px;
+
+    ul li {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #dddddd;
+      padding: 12px 10px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        display: block;
+        color: #AAAAAA;
+        width: 125px;
+        font-size: 15px;
+        margin-right: 15px;
+      }
+
+      a {
+        color: $grayDarker;
+        font-size: 18px;
+        display: block;
+        @include text-overflow(1);
+
+        &:hover {
+          color: $aoColor2;
+        }
+      }
+    }
+  }
 }
