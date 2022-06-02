@@ -1,6 +1,6 @@
 <template>
   <com-header/>
-  <div>
+  <div class="purchase-container">
     采购需求
   </div>
   <com-footer/>
@@ -12,5 +12,5 @@ import ComFooter from '../../components/footer/'
 </script>
 
 <style scoped lang="scss">
-
+@import "index";
 </style>

@@ -1,11 +1,42 @@
 .news-container {
   @include page-main;
-  width: 1000px;
-  margin: 0 auto;
+  @include main-wapper(0);
+  display: flex;
 
-  .page-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  // 右侧菜单
+  .news-menu {
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 20px;
+
+    .news-menu-title {
+      background-color: #e85a70;
+      color: $white;
+      font-weight: 700;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 36px;
+      margin-bottom: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+
+      a {
+        display: block;
+        text-align: center;
+        border-radius: 15px;
+        border: 1px solid #454552;
+        color: #454552;
+        padding: 6px 0;
+
+        &:hover {
+          color: $white;
+          background-color: $aoColor2;
+          border-color: $aoColor2;
+          font-weight: 700;
+        }
+      }
+    }
   }
 }

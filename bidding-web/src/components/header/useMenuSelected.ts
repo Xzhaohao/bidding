@@ -8,7 +8,7 @@ export default function useMenuSelected(store: Store<any>) {
   const menuSelected = (key: string) => {
     if ('langChange' === key) return
     store.commit('app/setSelectedMenu', key)
-    router.push(key)
+    router.push(`/${key}`)
   }
 
   // logo被点击时触发

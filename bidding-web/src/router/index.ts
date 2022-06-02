@@ -68,10 +68,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/news',
     name: 'News',
     component: () => import('@/views/news/index.vue'),
-    meta: {
-      title: '新闻资讯-招投标平台',
-      keepAlive: false
-    }
+    redirect: '/news/list',
+    children: [
+      { path: '/news/list', name: 'NewsList', component: () => import('@/views/news/child/News.vue') },
+      { path: '/news/policy', name: 'Policy', component: () => import('@/views/news/child/Policy.vue') }
+    ]
   },
   {
     path: '/help',
