@@ -54,6 +54,10 @@ const props = defineProps({
   hidden: {
     type: Boolean,
     default: false
+  },
+  to: {
+    type: Number,
+    default: 0
   }
 })
 
@@ -78,14 +82,14 @@ const pageSize = computed({
 const handleSizeChange = (val: number) => {
   emit('pagination', { page: currentPage, limit: val })
   if (ref(props.autoScroll).value) {
-    scrollTo(280, 500)
+    scrollTo(props.to, 500)
   }
 }
 
 const handleCurrentChange = (val: number) => {
   emit('pagination', { page: val, limit: pageSize })
   if (ref(props.autoScroll).value) {
-    scrollTo(280, 500)
+    scrollTo(props.to, 500)
   }
 }
 </script>

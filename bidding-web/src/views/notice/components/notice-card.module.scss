@@ -1,0 +1,43 @@
+.notice-card {
+  display: flex;
+  padding: 10px;
+
+  .time-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    > div {
+      width: 130px;
+      color: $aoColor7;
+
+      &:last-child {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .info-box {
+    border-bottom: 1px solid #dddddd;
+    padding: 0 10px 15px;
+
+    > a {
+      font-size: 20px;
+      color: $grayDarker;
+      @include text-overflow(1);
+      padding-bottom: 5px;
+
+      &:hover {
+        color: $aoColor2;
+      }
+    }
+
+    > div {
+      color: $helpText;
+      font-size: 14px;
+      text-indent: 2em;
+    }
+  }
+}

@@ -1,3 +1,27 @@
 .notice-container {
   @include page-main;
+
+  > img {
+    height: 200px;
+    width: 100%;
+  }
+
+  .notice-list {
+    @include main-wapper(0);
+
+    .el-divider {
+      margin: 50px 0 70px;
+
+      h2 {
+        color: $helpText;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .page-box {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 20px;
+  }
 }

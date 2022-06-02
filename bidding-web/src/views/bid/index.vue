@@ -31,6 +31,7 @@
       <Pagination
           layout="total, prev, pager, next, jumper"
           :total="20"
+          :to="280"
           :page:sync="1"
           :limit:sync="9"
           @pagination="() => {}"
