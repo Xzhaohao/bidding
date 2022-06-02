@@ -19,7 +19,7 @@ function getLanguage() {
   return store && store.getters && store.getters.language
 }
 
-const index = createI18n({
+const i18n = createI18n({
   // 使用 composition API，则需要将其值设置为false
   legacy: false,
   // 全局注入 $t函数
@@ -28,4 +28,4 @@ const index = createI18n({
   messages
 })
 
-export default index
+export default i18n

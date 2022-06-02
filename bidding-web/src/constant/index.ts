@@ -4,7 +4,7 @@ export const langArr = [
   { name: '日本語', country: '日本', type: 'ja' },
   { name: 'Srpski', country: 'Srbija', type: 'sr' },
   { name: 'English', country: 'United States', type: 'en' },
-  { name: 'Suomi', country: 'Suomi', type: 'fi' },
+  { name: 'Suomi', country: 'Suomi', type: 'fi' }
 ]
 
 // 招标筛选条件

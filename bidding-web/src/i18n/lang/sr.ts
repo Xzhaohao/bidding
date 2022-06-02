@@ -12,7 +12,7 @@ export default {
   },
   card: {
     cTransactions: 'concluded transactions',
-    policies: 'policies and regulations',
+    policies: 'policies and regulations'
   },
   message: {
     home: 'home',

@@ -43,7 +43,7 @@ async function createServer() {
       const appHtml = await render(url)
 
       // 5. 注入渲染后的应用程序 HTML 到模板中。
-      const html = template.replace(`<!--ssr-outlet-->`, appHtml)
+      const html = template.replace('<!--ssr-outlet-->', appHtml)
 
       // 6. 返回渲染后的 HTML。
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)

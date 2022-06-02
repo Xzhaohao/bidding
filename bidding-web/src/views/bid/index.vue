@@ -21,7 +21,7 @@
 
     <section class="bid-main">
       <el-row class="card-list-container" :gutter="20">
-        <el-col :span="8" v-for="i in 9">
+        <el-col :span="8" v-for="i in 9" :key="i">
           <bid-card/>
         </el-col>
       </el-row>
@@ -31,8 +31,8 @@
       <Pagination
           layout="total, prev, pager, next, jumper"
           :total="20"
-          :page.sync="1"
-          :limit.sync="9"
+          :page:sync="1"
+          :limit:sync="9"
           @pagination="() => {}"
       />
     </section>

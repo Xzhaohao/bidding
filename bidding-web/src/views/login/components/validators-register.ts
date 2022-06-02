@@ -15,7 +15,6 @@ export const registerForm = ref<RegisterFormData>({
   password2: ''
 })
 
-
 const validatePassword2 = (rule: RegisterFormRules, value: string, callback: Function) => {
   if (value !== registerForm.value.password) {
     callback(new Error('两次输入的密码不一致！'))
@@ -23,7 +22,6 @@ const validatePassword2 = (rule: RegisterFormRules, value: string, callback: Fun
     callback()
   }
 }
-
 
 export const registerRules: Object = ref<RegisterFormRules>({
   mobile: [

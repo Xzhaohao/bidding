@@ -32,6 +32,10 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     // 关闭函数名后面括号之间空格的检验
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    // 关闭组件命名规范检查
+    'vue/multi-word-component-names': 'off',
+    // 关闭：eslint不建议子元素通过v-model修改父元素传的props值
+    'vue/no-mutating-props': 'off'
   }
 }

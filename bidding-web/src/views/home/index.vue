@@ -16,7 +16,7 @@
       <title-header title="采购公示" link="/404" padding/>
 
       <el-row class="card-list-container" :gutter="20">
-        <el-col :span="8" v-for="i in 6">
+        <el-col :span="8" v-for="i in 6" :key="i">
           <bid-card />
         </el-col>
       </el-row>

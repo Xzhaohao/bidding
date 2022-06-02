@@ -11,7 +11,7 @@ export default {
   },
   card: {
     cTransactions: '成交公示',
-    policies: '政策法规',
+    policies: '政策法规'
   },
   message: {
     home: '首页',

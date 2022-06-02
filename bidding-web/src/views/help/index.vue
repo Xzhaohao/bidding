@@ -36,7 +36,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { fileArr } from '../../constant'
 import ComHeader from '@/components/header/index.vue'
 import ComFooter from '../../components/footer/'

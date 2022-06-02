@@ -10,7 +10,7 @@ import { defineProps, defineEmits } from 'vue'
 defineProps({
   list: {
     type: Array,
-    default: []
+    default: () => []
   },
   defaultLabel: {
     type: String,
@@ -21,9 +21,7 @@ defineProps({
   }
 })
 
-const emit = defineEmits<{
-  (e: 'onChange', label: any): void
-}>()
+const emit = defineEmits<{(e: 'onChange', label: any): void }>()
 
 const radioChange = (label: any) => {
   emit('onChange', label)

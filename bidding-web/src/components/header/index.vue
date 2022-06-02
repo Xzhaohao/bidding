@@ -42,9 +42,8 @@
 import { computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
-import { langArr } from '../../constant'
+import { langArr, MENU } from '../../constant'
 import { getItem } from '../../utils/storage'
-import { MENU } from '../../constant'
 import useHeaderStyle from './useHeaderStyle'
 import useLangChange from './useLangChange'
 import useMenuSelected from './useMenuSelected'
@@ -52,7 +51,7 @@ import useMenuSelected from './useMenuSelected'
 // 监听路由变化
 const route = useRoute()
 watch(route, () => {
-  const routeName = route.path.replace(/\//g,'')
+  const routeName = route.path.replace(/\//g, '')
   if (routeName !== getItem(MENU)) {
     store.commit('app/setSelectedMenu', routeName)
   }
@@ -82,6 +81,7 @@ const { menuSelected, logoClicked } = useMenuSelected(store)
   background: v-bind(menuItemSelectedBg);
   color: #9b63ee;
 }
+
 // menu-item 选中后
 .el-menu--horizontal > .el-menu-item.is-active {
   background: v-bind(menuItemSelectedBg);

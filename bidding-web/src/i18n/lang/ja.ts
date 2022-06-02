@@ -1,6 +1,6 @@
 export default {
   header: {
-    lang: '日本語',
+    lang: '日本語'
   },
   message: {
     home: '首页',

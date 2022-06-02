@@ -56,15 +56,6 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/policy',
-    name: 'Policy',
-    component: () => import('@/views/policy/index.vue'),
-    meta: {
-      title: '政策法规-招投标平台',
-      keepAlive: false
-    }
-  },
-  {
     path: '/news',
     name: 'News',
     component: () => import('@/views/news/index.vue'),
@@ -90,15 +81,13 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-
 const router = createRouter({
   history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
   routes
 })
 
 router.beforeEach((to, from, next) => {
-  // @ts-ignore
-  if (to.meta.title)  document.title = to.meta.title
+  if (to.meta.title) document.title = to.meta.title as string
 
   next()
 })

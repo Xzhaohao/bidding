@@ -25,7 +25,7 @@ defineProps({
   },
   list: {
     type: Array as PropType<Array<any>>,
-    default: []
+    default: () => []
   }
 })
 </script>

@@ -9,6 +9,7 @@
           summary="蒼の彼方のフォーリズム 鳶沢みさきルート公式ノベライズ。 作品名：蒼の彼方のフォーリズム – Fly me to your sky ! – 作者：渡辺僚一 装丁 ..."
           time="2022-05-30"
           v-for="i in 6"
+          :key="i"
       />
     </section>
 
@@ -16,8 +17,8 @@
       <Pagination
           layout="total, prev, pager, next, jumper"
           :total="20"
-          :page.sync="1"
-          :limit.sync="9"
+          :page:sync="1"
+          :limit:sync="9"
           @pagination="() => {}"
       />
     </section>

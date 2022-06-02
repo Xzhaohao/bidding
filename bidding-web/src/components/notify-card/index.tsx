@@ -14,7 +14,7 @@ export default defineComponent({
     },
     list: {
       type: Array as PropType<Array<any>>,
-      default: []
+      default: () => []
     }
   },
 

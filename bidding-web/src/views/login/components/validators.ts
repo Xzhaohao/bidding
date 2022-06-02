@@ -31,7 +31,6 @@ export interface LoginFormRules {
   })[];
 }
 
-
 export interface RegisterFormRules {
   mobile: ({
     required: boolean;
@@ -70,7 +69,6 @@ export interface RegisterFormRules {
   })[];
 }
 
-
 export const validateMobile = (rule: LoginFormRules | RegisterFormRules, value: string, callback: Function) => {
   const regex = /^[1][3-9][0-9]{9}$/
   if (!regex.test(value)) {
@@ -80,7 +78,6 @@ export const validateMobile = (rule: LoginFormRules | RegisterFormRules, value: 
   }
 }
 
-
 export const validateSmsCode = (rule: RegisterFormRules, value: string, callback: Function) => {
   const regex = /^[0-9]{6}$/
   if (!regex.test(value)) {
@@ -89,7 +86,6 @@ export const validateSmsCode = (rule: RegisterFormRules, value: string, callback
     callback()
   }
 }
-
 
 export const validatePassword = (rule: LoginFormRules | RegisterFormRules, value: string, callback: Function) => {
   const regex = /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)[\da-zA-z]{6,16}$/

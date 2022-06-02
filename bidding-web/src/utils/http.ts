@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { ElMessage } from 'element-plus'
-// @ts-ignore
 import NProgress from 'nprogress'
 
 const request = axios.create({
@@ -16,8 +15,7 @@ const request = axios.create({
 request.interceptors.request.use((config: AxiosRequestConfig) => {
   NProgress.start()
   const token = window.sessionStorage.getItem('token')
-  // @ts-ignore
-  if (token) config.headers.Authorization = token
+  if (token) config.headers!.Authorization = token
   return config
 }, error => Promise.reject(error))
 

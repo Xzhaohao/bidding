@@ -6,7 +6,7 @@ export default function useMenuSelected(store: Store<any>) {
 
   // 菜单项被选中
   const menuSelected = (key: string) => {
-    if ('langChange' === key) return
+    if (key === 'langChange') return
     store.commit('app/setSelectedMenu', key)
     router.push(`/${key}`)
   }
