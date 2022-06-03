@@ -2,6 +2,8 @@ import { defineComponent } from 'vue'
 import styles from './notice-card.module.scss'
 
 export default defineComponent({
+  name: 'NoticeCard',
+
   setup() {
     return () => {
       return <div class={styles['notice-card']}>

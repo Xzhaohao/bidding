@@ -1,0 +1,45 @@
+.bid-card {
+  margin-bottom: 20px;
+  border-radius: $baseRadius;
+  border: 1px solid var(--el-border-color-light);
+  background-color: $white;
+  transition: all 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 0 40px rgb(0 0 0 / 20%);
+    // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+
+    .card-header {
+      color: $aoColor2;
+    }
+  }
+
+  .card-header {
+    padding: 8px 15px;
+    font-size: 16px;
+    color: $grayDarker;
+    border-bottom: 1px solid var(--el-border-color-light);
+  }
+
+  .card-body {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.02);
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    border-bottom: 1px dashed #ddd;
+  }
+
+  .card-footer {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .audit-status {
+      color: #909399;
+    }
+  }
+}

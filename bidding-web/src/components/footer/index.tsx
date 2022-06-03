@@ -2,6 +2,8 @@ import { defineComponent } from 'vue'
 import styles from './index.module.scss'
 
 export default defineComponent({
+  name: 'ComFooter',
+
   setup() {
     return () => {
       return <footer>

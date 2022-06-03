@@ -6,19 +6,24 @@
   box-shadow: 0 0 7px #0003;
   height: 260px;
 
-  .card-list-item {
-    height: 40px;
-    line-height: 40px;
-    padding-right: 15px;
+  ul {
+    li {
+      height: 40px;
+      line-height: 40px;
+      padding-right: 15px;
 
-    a {
-      width: 100%;
+      a {
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        color: $helpText;
+        @include line-text-overflow;
+
+        &:hover {
+          border-bottom: 1px solid $aoColor2;
+          color: $aoColor2;
+        }
+      }
     }
-  }
-
-  :deep(.el-link__inner) {
-    display: block;
-    width: 100%;
-    @include line-text-overflow;
   }
 }

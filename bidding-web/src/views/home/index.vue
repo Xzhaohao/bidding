@@ -49,9 +49,9 @@
 import { ref } from 'vue'
 import ComHeader from '@/components/header/index.vue'
 import ComFooter from '../../components/footer/'
-import NotifyCard from '@/components/notify-card/index.vue'
-import TitleHeader from '@/components/title-header/index.vue'
-import BidCard from '@/components/bid-card/index.vue'
+import NotifyCard from '../../components/notify-card/'
+import TitleHeader from '../../components/title-header/'
+import BidCard from '../../components/bid-card/'
 
 const list = ref([
   { title: '中国—东盟信息港股份有限公司智能化网络设备采购项目 竞争性谈判公告竞争性谈判公告竞争性谈判', link: '/404' },

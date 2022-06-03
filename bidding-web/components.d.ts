@@ -39,7 +39,7 @@ declare module '@vue/runtime-core' {
     RadioButton: typeof import('./src/components/radio-button/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TitleHeader: typeof import('./src/components/title-header/index.vue')['default']
+    TitleHeader: typeof import('./src/components/title-header/index')['TitleHeader']
   }
 }
 

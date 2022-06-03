@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import ArticleCard from '@/components/article-card/index.vue'
+import ArticleCard from '../../../components/article-card/'
 import Pagination from '@/components/Pagination/index.vue'
 </script>
 

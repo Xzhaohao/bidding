@@ -1,8 +1,10 @@
 import { defineComponent, PropType } from 'vue'
-import TitleHeader from '@/components/title-header/index.vue'
+import TitleHeader from '../../components/title-header/'
 import styles from './index.module.scss'
 
 export default defineComponent({
+  name: 'NotifyCard',
+
   props: {
     title: {
       type: String as PropType<string>,
@@ -25,8 +27,8 @@ export default defineComponent({
 
         <ul>
           {
-            props.list?.map((item, index) => <li class={styles['card-list-item']}>
-              <el-link href={item.link}>{index + 1}. {item.title}</el-link>
+            props.list?.map((item, index) => <li>
+              <a href={item.link}>{index + 1}. {item.title}</a>
             </li>)
           }
         </ul>

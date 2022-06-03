@@ -1,0 +1,23 @@
+.bid-banner {
+  background: url("../../assets/banner_bg.png") no-repeat center;
+  height: 200px;
+  color: $white;
+  font-size: 45px;
+  text-align: center;
+  line-height: 200px;
+
+  > span {
+    color: #ffe400;
+  }
+}
+
+// 条件选择框
+.choose-box {
+  width: $g_width;
+  border: 1px solid #F0F0F0;
+  margin: 29px auto 20px;
+  border-radius: $baseRadius;
+  font-size: 14px;
+  color: $grayDarker;
+  padding: 10px 0;
+}
