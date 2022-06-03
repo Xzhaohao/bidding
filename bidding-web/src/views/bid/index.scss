@@ -5,12 +5,4 @@
   .bid-main {
     @include main-wapper(0);
   }
-
-  // 分页
-  .bid-pagination {
-    @include main-wapper(20px);
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-  }
 }

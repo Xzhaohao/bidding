@@ -17,7 +17,10 @@
 
       <el-row class="card-list-container" :gutter="20">
         <el-col :span="8" v-for="i in 6" :key="i">
-          <bid-card />
+          <bid-card :title="dataTest.title" :no="dataTest.no" :bid-type="dataTest.bidType" :push-time="dataTest.pushTime" :end-time="dataTest.endTime">
+            <el-button type="primary">竞谈答复</el-button>
+            <div style="color: #909399;">已公示</div>
+          </bid-card>
         </el-col>
       </el-row>
     </section>
@@ -60,6 +63,14 @@ const list = ref([
   { title: '中国—东盟信息港股份有限公司智能化网络设备采购项目 竞争性谈判公告', link: '/404' },
   { title: '中国—东盟信息港股份有限公司智能化网络设备采购项目 竞争性谈判公告', link: '/404' }
 ])
+
+const dataTest = ref({
+  title: '中国—东盟信息港股份有限公司新大楼办公场所工位扩容强弱电改造采购项目',
+  no: '0747-2260SCCGX089',
+  bidType: '竞争性谈判',
+  pushTime: '2022-05-31 09:00:00',
+  endTime: '2022-06-06 09:00:00'
+})
 
 const tableData = [
   { name: '短信通道服务采购', type: '服务类', num: 9000000, time: '2022-09-11 09:00:00', price: '¥ 636,000.00', status: '已截止' },

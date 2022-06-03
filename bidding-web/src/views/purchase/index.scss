@@ -1,5 +1,12 @@
 .purchase-container {
   @include page-main;
 
+  .purchase-main {
+    @include main-wapper(0);
 
+    .purchase-item-detail {
+      font-size: 13px;
+      color: $aoColor2;
+    }
+  }
 }

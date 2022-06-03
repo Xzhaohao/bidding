@@ -8,12 +8,12 @@
 
   &:hover {
     transform: scale(1.05);
-    cursor: pointer;
     box-shadow: 0 0 40px rgb(0 0 0 / 20%);
     // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 
     .card-header {
       color: $aoColor2;
+      cursor: pointer;
     }
   }
 
@@ -22,10 +22,11 @@
     font-size: 16px;
     color: $grayDarker;
     border-bottom: 1px solid var(--el-border-color-light);
+    min-height: 55px;
   }
 
   .card-body {
-    padding: 20px;
+    padding: 15px 20px;
     background: rgba(0, 0, 0, 0.02);
     color: rgb(51, 51, 51);
     font-size: 14px;
@@ -37,9 +38,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .audit-status {
-      color: #909399;
-    }
   }
 }
