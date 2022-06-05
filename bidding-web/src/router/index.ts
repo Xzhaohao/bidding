@@ -75,6 +75,15 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path: '/customer',
+    name: 'Customer',
+    component: () => import('@/views/customer/index.vue'),
+    redirect: '/customer/info',
+    children: [
+      { path: '/customer/info', name: 'CustomerInfo', component: () => import('@/views/customer/child/info/index.vue') }
+    ]
+  },
+  {
     path: '/:catchAll(.*)',
     name: '/404',
     component: () => import('@/views/404.vue')

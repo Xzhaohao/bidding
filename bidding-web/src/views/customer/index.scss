@@ -1,0 +1,23 @@
+.customer-container {
+  padding-top: 60px;
+  width: 100%;
+  min-height: 100vh;
+
+  .el-aside {
+    background: #304156;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+  }
+
+  .el-main {
+    background: #f2f2f2;
+  }
+
+  .el-menu {
+    border-right: none;
+  }
+
+  .el-breadcrumb {
+    margin-bottom: 15px;
+  }
+}
