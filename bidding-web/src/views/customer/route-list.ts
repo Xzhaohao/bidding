@@ -32,10 +32,10 @@ export const routes = [
     path: '/setting',
     title: '账号设置',
     child: [
-      { path: '/404', title: '我的消息' },
+      { path: '/customer/message', title: '我的消息' },
       { path: '/customer/info', title: '基本信息' },
-      { path: '/402', title: '认证信息' },
-      { path: '/403', title: '子账户管理' }
+      { path: '/customer/cert', title: '认证信息' },
+      { path: '/customer/account', title: '子账户管理' }
     ]
   }
 ]

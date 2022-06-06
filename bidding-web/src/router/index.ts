@@ -80,7 +80,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/customer/index.vue'),
     redirect: '/customer/info',
     children: [
-      { path: '/customer/info', name: 'CustomerInfo', component: () => import('@/views/customer/child/info/index.vue') }
+      { path: '/customer/info', name: 'CustomerInfo', component: () => import('@/views/customer/child/info/index.vue') },
+      { path: '/customer/account', name: 'childAccount', component: () => import('@/views/customer/child/account/index.vue') },
+      { path: '/customer/message', name: 'CustomerMessage', component: () => import('@/views/customer/child/message/index.vue') },
+      { path: '/customer/cert', name: 'CustomerCert', component: () => import('@/views/customer/child/cert/index.vue') }
     ]
   },
   {
