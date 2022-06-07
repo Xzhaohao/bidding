@@ -36,6 +36,7 @@
         <aliyun.sdk.oss>3.10.2</aliyun.sdk.oss>
         <QR.code>3.5.0</QR.code>
         <commons.io>2.6</commons.io>
+        <kaptcha>2.3.2</kaptcha>
     </properties>
 
     <dependencies>
@@ -145,6 +146,12 @@
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
             <version>${QR.code}</version>
+        </dependency>
+        <!-- 图形验证码 -->
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>${kaptcha}</version>
         </dependency>
     </dependencies>
 

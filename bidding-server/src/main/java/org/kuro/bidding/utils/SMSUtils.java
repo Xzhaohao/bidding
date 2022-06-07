@@ -60,7 +60,7 @@ public class SMSUtils {
                 return Result.ok(ResultCode.MOBILE_CODE_SEND);
             }
         } catch (ClientException e) {
-            throw new BusinessException(ResultCode.CODE_SEND_ERROR);
+            throw new BusinessException(ResultCode.SMS_CODE_SEND_ERROR);
         }
     }
 }

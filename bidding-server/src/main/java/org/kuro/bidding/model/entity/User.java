@@ -38,7 +38,7 @@ public class User {
     @ApiModelProperty(value = "机构编码")
     private String orgCode;
 
-    @ApiModelProperty(value = "状态，0未认证，1正常，2冻结")
+    @ApiModelProperty(value = "状态，0未认证，1正常，2冻结，3删除")
     private Integer status;
 
     @ApiModelProperty(value = "座机号")
