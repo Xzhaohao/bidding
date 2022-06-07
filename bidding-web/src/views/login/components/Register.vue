@@ -1,5 +1,8 @@
 <template>
   <el-form size="large" :model="registerForm" :rules="registerRules" ref="registerFormRef" class="register-form">
+    <el-form-item prop="company">
+      <el-input v-model="registerForm.company" placeholder="企业名称"/>
+    </el-form-item>
     <el-form-item prop="mobile">
       <el-input v-model="registerForm.mobile" placeholder="手机号"/>
     </el-form-item>

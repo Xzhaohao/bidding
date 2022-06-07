@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { RegisterFormRules, validatePassword, validateMobile, validateSmsCode } from './validators'
 
 interface RegisterFormData {
+  company: string;
   mobile: string;
   code: string;
   password: string;
@@ -9,6 +10,7 @@ interface RegisterFormData {
 }
 
 export const registerForm = ref<RegisterFormData>({
+  company: '',
   mobile: '',
   code: '',
   password: '',
@@ -24,6 +26,9 @@ const validatePassword2 = (rule: RegisterFormRules, value: string, callback: Fun
 }
 
 export const registerRules: Object = ref<RegisterFormRules>({
+  company: [
+    { required: true, message: '请输入企业名称！', trigger: 'blur' }
+  ],
   mobile: [
     { required: true, message: '请输入手机号码！', trigger: 'blur' },
     { validator: validateMobile, trigger: 'blur' }

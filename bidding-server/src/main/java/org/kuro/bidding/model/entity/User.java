@@ -19,18 +19,47 @@ public class User {
     @ApiModelProperty(value = "主键")
     private String id;
 
-    @ApiModelProperty(value = "用户名")
-    private String nickname;
+    @ApiModelProperty(value = "公司名")
+    private String company;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ApiModelProperty(value = "密码")
     private String password;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
+    @ApiModelProperty(value = "头像 / logo")
+    private String avatar;
+
+    @ApiModelProperty(value = "电子邮件")
+    private String email;
+
+    @ApiModelProperty(value = "手机")
+    private String mobile;
+
+    @ApiModelProperty(value = "机构编码")
+    private String orgCode;
+
+    @ApiModelProperty(value = "状态，0未认证，1正常，2冻结")
+    private Integer status;
+
+    @ApiModelProperty(value = "座机号")
+    private String telephone;
+
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     @ApiModelProperty(value = "注册时间")
     private Date createTime;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     @ApiModelProperty(value = "修改时间")
     private Date updateTime;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ApiModelProperty(value = "设备ID")
+    private String clientId;
+
+    @ApiModelProperty(value = "上次登陆时间")
+    private Date lastLoginTime;
+
+    @ApiModelProperty(value = "上次登陆地点")
+    private String lastLoginAddress;
 }

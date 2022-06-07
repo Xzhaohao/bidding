@@ -32,6 +32,12 @@ export interface LoginFormRules {
 }
 
 export interface RegisterFormRules {
+  company: ({
+    required: boolean;
+    message: string;
+    trigger: string;
+  })[];
+
   mobile: ({
     required: boolean;
     message: string;
