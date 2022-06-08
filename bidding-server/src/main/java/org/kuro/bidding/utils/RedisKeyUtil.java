@@ -43,12 +43,12 @@ public class RedisKeyUtil {
 
 
     /**
-     * 短信验证码 —— 登录
+     * 短信验证码
      *
      * @param mobile 手机号
      * @return 存入redis的key
      */
-    public static String getLoginSmsCodeKey(String mobile) {
+    public static String getSmsCodeKey(String mobile) {
         return PREFIX_MOBILE + SPLIT + PREFIX_CODE + SPLIT + PREFIX_LOGIN_SMS + SPLIT + mobile;
     }
 

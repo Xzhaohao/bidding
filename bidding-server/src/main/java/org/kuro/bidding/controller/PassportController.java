@@ -4,6 +4,7 @@ import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.codec.Base64;
+import cn.hutool.core.util.DesensitizedUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
@@ -16,6 +17,7 @@ import io.swagger.annotations.ApiResponses;
 import org.kuro.bidding.enums.UserStatus;
 import org.kuro.bidding.exceptions.BusinessException;
 import org.kuro.bidding.model.bo.LoginInfoBo;
+import org.kuro.bidding.model.bo.RegisterBo;
 import org.kuro.bidding.model.entity.User;
 import org.kuro.bidding.model.result.Result;
 import org.kuro.bidding.model.result.ResultCode;
@@ -23,6 +25,7 @@ import org.kuro.bidding.service.UserService;
 import org.kuro.bidding.utils.RedisKeyUtil;
 import org.kuro.bidding.utils.RedisOperator;
 import org.kuro.bidding.utils.SMSUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +42,7 @@ import java.util.Objects;
 @ApiSupport(order = 1)
 @RestController
 @RequestMapping("api/v1")
-@Api(value = "登陆相关API", tags = {"登陆"})
+@Api(value = "登陆注册相关API", tags = {"登陆注册"})
 public class PassportController {
 
     @Autowired
@@ -135,6 +138,11 @@ public class PassportController {
         // 返回用户信息和token
         Map<String, Object> map = new HashMap<>();
         map.put("token", info.getTokenValue());
+
+        // 手机号隐私保护
+        String phone = DesensitizedUtil.mobilePhone(user.getMobile());
+        user.setMobile(phone);
+
         map.put("user", user);
         return Result.ok(ResultCode.LOGIN_SUCCESS).data(map);
     }
@@ -145,5 +153,35 @@ public class PassportController {
     public Result logoutApi() {
         StpUtil.logout();
         return Result.ok(ResultCode.LOGOUT_SUCCESS);
+    }
+
+
+    @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
+    @PostMapping("/pub/passport/register")
+    public Result registerApi(@RequestBody @Valid RegisterBo registerBo) {
+        // 判断两次输入的密码是否一致
+        if (!registerBo.getPassword().equals(registerBo.getPassword2())) {
+            return Result.error(ResultCode.PASSWORD_NOT_ALIKE);
+        }
+
+        // 验证短信验证码
+        String redisSmsKey = RedisKeyUtil.getSmsCodeKey(registerBo.getMobile());
+        String smsCode = redis.get(redisSmsKey);
+        if (StrUtil.isBlank(smsCode) || !smsCode.equals(registerBo.getCode())) {
+            return Result.error(ResultCode.CODE_ERROR);
+        }
+
+        // 判断用户是否已经注册
+        User user = userService.queryUserByMobile(registerBo.getMobile());
+        if (user != null) {
+            return Result.error(ResultCode.ACCOUNT_IS_EXIST);
+        }
+
+        // 注册
+        User registerUser = new User();
+        BeanUtils.copyProperties(registerBo, registerUser);
+        userService.createUser(registerUser);
+
+        return Result.ok(ResultCode.REGISTER_SUCCESS);
     }
 }

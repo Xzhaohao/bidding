@@ -11,4 +11,12 @@ public interface UserService {
      * @return User对象
      */
     User queryUserByMobile(String mobile);
+
+
+    /**
+     * 用户注册
+     *
+     * @param user 用户对象
+     */
+    void createUser(User user);
 }
