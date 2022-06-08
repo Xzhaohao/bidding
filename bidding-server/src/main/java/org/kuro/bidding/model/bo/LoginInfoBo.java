@@ -28,4 +28,9 @@ public class LoginInfoBo {
     @NotBlank(message = "验证码不能为空！")
     @ApiModelProperty(value = "验证码")
     private String code;
+
+
+    @NotBlank(message = "KEY不能为空！")
+    @ApiModelProperty(value = "验证码KEY")
+    private String key;
 }

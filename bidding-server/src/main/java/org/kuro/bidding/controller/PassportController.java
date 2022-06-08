@@ -1,5 +1,8 @@
 package org.kuro.bidding.controller;
 
+import cn.dev33.satoken.session.SaSession;
+import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
@@ -29,12 +32,14 @@ import javax.validation.Valid;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @ApiSupport(order = 1)
 @RestController
 @RequestMapping("api/v1")
-@Api(value = "权限验证模块", tags = {"权限验证"})
+@Api(value = "登陆相关API", tags = {"登陆"})
 public class PassportController {
 
     @Autowired
@@ -68,10 +73,14 @@ public class PassportController {
         }
 
         // 将验证码存入 Redis
-        String kaptchaKey = RedisKeyUtil.getKaptchaKey(IdUtil.fastSimpleUUID());
+        String key = IdUtil.fastSimpleUUID();
+        String kaptchaKey = RedisKeyUtil.getKaptchaKey(key);
+        Map<String, String> res = new HashMap<>();
+        res.put("key", key);
+        res.put("code", base64);
         redis.set(kaptchaKey, code, 60);
 
-        return Result.ok().data(base64);
+        return Result.ok().data(res);
     }
 
 
@@ -87,27 +96,54 @@ public class PassportController {
             @RequestBody @Valid LoginInfoBo loginInfoBo,
             HttpServletRequest request
     ) {
+        // 检查验证码
+        String code = loginInfoBo.getCode();
+        String key = loginInfoBo.getKey();
+        String redisKey = RedisKeyUtil.getKaptchaKey(key);
+        String imageCode = redis.get(redisKey);
+        if (StrUtil.isBlank(imageCode) || !imageCode.equalsIgnoreCase(code)) {
+            return Result.error(ResultCode.CODE_ERROR);
+        }
+
         // 判断用户是否存在
         String mobile = loginInfoBo.getMobile();
         User user = userService.queryUserByMobile(mobile);
         if (user == null || user.getStatus().equals(UserStatus.DELETE.type)) {
             return Result.error(ResultCode.ACCOUNT_NOT_EXIST);
         }
+
         // 用户是否被冻结
         if (Objects.equals(user.getStatus(), UserStatus.FREEZE.type)) {
             return Result.error(ResultCode.ACCOUNT_DISABLE);
         }
 
-        // 检查验证码
-        String code = loginInfoBo.getCode();
-        // String redisKey = RedisKeyUtil.getLoginSmsCodeKey(mobile);
-
+        // 检查密码是否正确
         String password = loginInfoBo.getPassword();
         boolean isMatch = BCrypt.checkpw(password, user.getPassword());
         if (!isMatch) {
             return Result.error(ResultCode.ACCOUNT_INFO_ERROR);
         }
 
-        return null;
+        // 登陆处理
+        StpUtil.login(user.getId());
+        SaSession session = StpUtil.getSession();
+        session.set(RedisKeyUtil.getSessionUserKey(), user);
+        SaTokenInfo info = StpUtil.getTokenInfo();
+
+        // todo 记录登陆日志
+
+        // 返回用户信息和token
+        Map<String, Object> map = new HashMap<>();
+        map.put("token", info.getTokenValue());
+        map.put("user", user);
+        return Result.ok(ResultCode.LOGIN_SUCCESS).data(map);
+    }
+
+
+    @ApiOperation(value = "退出登陆", notes = "退出登陆", httpMethod = "POST")
+    @PostMapping("/pri/passport/logout")
+    public Result logoutApi() {
+        StpUtil.logout();
+        return Result.ok(ResultCode.LOGOUT_SUCCESS);
     }
 }
