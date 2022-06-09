@@ -17,11 +17,13 @@ import io.swagger.annotations.ApiResponses;
 import org.kuro.bidding.enums.UserStatus;
 import org.kuro.bidding.exceptions.BusinessException;
 import org.kuro.bidding.model.bo.LoginInfoBo;
+import org.kuro.bidding.model.bo.MobileBo;
 import org.kuro.bidding.model.bo.RegisterBo;
 import org.kuro.bidding.model.entity.User;
 import org.kuro.bidding.model.result.Result;
 import org.kuro.bidding.model.result.ResultCode;
 import org.kuro.bidding.service.UserService;
+import org.kuro.bidding.utils.IPUtil;
 import org.kuro.bidding.utils.RedisKeyUtil;
 import org.kuro.bidding.utils.RedisOperator;
 import org.kuro.bidding.utils.SMSUtils;
@@ -183,5 +185,25 @@ public class PassportController {
         userService.createUser(registerUser);
 
         return Result.ok(ResultCode.REGISTER_SUCCESS);
+    }
+
+
+    @ApiOperation(value = "短信验证码", notes = "获取短信验证码", httpMethod = "POST")
+    @PostMapping("/pub/passport/sms")
+    public Result smsCodeApi(@RequestBody @Valid MobileBo bo, HttpServletRequest request) {
+        String ip = IPUtil.getIpAddress(request);
+
+        String redisIpKey = RedisKeyUtil.getLoginSmsIpKey(ip);
+
+        // 根据用户的 ip 进行限制，限制用户在60秒内只能获得一次验证码
+        boolean exist = redis.keyIsExist(redisIpKey);
+        if (exist) {
+            return Result.error(ResultCode.FREQUENT_OPERATION);
+        }
+
+        redis.setnx60s(redisIpKey, ip);
+        // 生成验证码，验证码保存十分钟
+        String random = (int) ((Math.random() * 9 + 1) * 100000) + "";
+        return smsUtils.sendSMS(bo.getMobile(), random);
     }
 }

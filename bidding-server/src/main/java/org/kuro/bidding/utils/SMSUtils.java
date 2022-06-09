@@ -22,8 +22,8 @@ public class SMSUtils {
     @Autowired
     private AliyunResource aliyunResource;
 
-    //@Autowired
-    //private RedisOperator redis;
+    @Autowired
+    private RedisOperator redis;
 
     static final String action = "SendSms";
     // 产品域名,开发者无需替换
@@ -56,7 +56,7 @@ public class SMSUtils {
                 return Result.error().message(object.getStr("Message"));
             } else {
                 // 验证码保存 10 分钟
-                // redis.set(redisKey, code, 60 * 5);
+                redis.set(RedisKeyUtil.getSmsCodeKey(mobile), code, 60 * 5);
                 return Result.ok(ResultCode.MOBILE_CODE_SEND);
             }
         } catch (ClientException e) {
