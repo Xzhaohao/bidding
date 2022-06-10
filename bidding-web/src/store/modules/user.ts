@@ -24,16 +24,18 @@ export default {
   },
   actions: {
     login(context: any, userInfo: any) {
-      const { username, password } = userInfo
+      const { mobile, password, code, key } = userInfo
       return new Promise((resolve: any, reject) => {
         // 登陆请求动作
-        loginApi({ username, password: md5(password) })
-          .then(data => {
-            // @ts-ignore
-            this.commit('user/setToken', data.token)
-            router.push('/')
-            // 保存登陆时间
-            setTimeStamp()
+        loginApi({ mobile, password: md5(password), code, key })
+          .then(({ data }) => {
+            if (data.status) {
+              // @ts-ignore
+              this.commit('user/setToken', data.data.token)
+              router.push('/')
+              // 保存登陆时间
+              setTimeStamp()
+            }
             resolve()
           })
           .catch(err => reject(err))

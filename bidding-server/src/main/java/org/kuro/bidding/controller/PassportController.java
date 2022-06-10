@@ -83,7 +83,7 @@ public class PassportController {
         Map<String, String> res = new HashMap<>();
         res.put("key", key);
         res.put("code", base64);
-        redis.set(kaptchaKey, code, 60);
+        redis.set(kaptchaKey, code, 120);
 
         return Result.ok().data(res);
     }

@@ -17,8 +17,6 @@ public class LoginInfoBo {
     private String mobile;
 
 
-    @Pattern(regexp = "^(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)[\\da-zA-z]{6,16}$",
-            message = "密码至少包含数字，大、小写字母中的2种，且长度在6-16位之间！")
     @NotBlank(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
     private String password;

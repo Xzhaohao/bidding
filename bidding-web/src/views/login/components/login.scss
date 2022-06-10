@@ -25,6 +25,10 @@
   .code-img {
     width: 100%;
     display: flex;
+
+    img {
+      cursor: pointer;
+    }
   }
 
   :deep(.el-checkbox__label) {

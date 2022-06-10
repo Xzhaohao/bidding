@@ -1,8 +1,13 @@
 import request from '../utils/http'
 
+// 获取登陆图形验证码
+export const loginImageCodeApi = () => request({
+  url: '/pub/passport/code'
+})
+
 // 登陆
 export const loginApi = (data: object) => request({
-  url: '/user/login',
+  url: '/pub/passport/login',
   method: 'POST',
   data
 })

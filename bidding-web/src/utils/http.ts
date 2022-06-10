@@ -20,7 +20,7 @@ request.interceptors.request.use((config: AxiosRequestConfig) => {
 }, error => Promise.reject(error))
 
 request.interceptors.response.use((config: AxiosResponse) => {
-  if (!config.data.success) {
+  if (!config.data.status) {
     ElMessage.error(config.data.message || '服务器端异常！')
   }
   NProgress.done()

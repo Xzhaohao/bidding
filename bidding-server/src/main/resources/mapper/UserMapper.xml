@@ -4,7 +4,7 @@
 
     <select id="selectUserByMobile" resultType="org.kuro.bidding.model.entity.User">
         select id,
-               company,
+               `company`,
                password,
                avatar,
                email,
