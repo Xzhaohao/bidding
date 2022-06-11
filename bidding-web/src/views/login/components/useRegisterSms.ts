@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { fetchSmsCodeApi } from '../../../api/user'
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
+import { registerForm } from './validators-register'
 
 const smsBtnDisable = ref(false)
 const smsCountDown = ref('获取短信验证码')
@@ -13,7 +14,8 @@ const getSmsCode = async (registerFormEl: FormInstance | undefined) => {
   await registerFormEl.validateField('mobile', async (valid: boolean) => {
     if (!valid) return
 
-    const { data } = await fetchSmsCodeApi()
+    const mobile = registerForm.value.mobile
+    const { data } = await fetchSmsCodeApi({ mobile })
     if (data.status) {
       // 禁用获取验证码按钮
       smsBtnDisable.value = true

@@ -1,4 +1,5 @@
 import request from '../utils/http'
+import { RegisterFormData } from '../views/login/components/validators-register'
 
 // 获取登陆图形验证码
 export const loginImageCodeApi = () => request({
@@ -18,9 +19,17 @@ export const fetchUserInfoApi = () => request({
 })
 
 // 获取短信验证码
-export const fetchSmsCodeApi = () => request({
+export const fetchSmsCodeApi = (data: object) => request({
   url: '/pub/passport/sms',
-  method: 'POST'
+  method: 'POST',
+  data
+})
+
+// 注册
+export const registerApi = (data: RegisterFormData) => request({
+  url: '/pub/passport/register',
+  method: 'POST',
+  data
 })
 
 // 退出登陆

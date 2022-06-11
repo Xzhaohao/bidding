@@ -55,12 +55,18 @@ public class SMSUtils {
             if (ok == null) {
                 return Result.error().message(object.getStr("Message"));
             } else {
-                // 验证码保存 10 分钟
+                // 验证码保存 5 分钟
                 redis.set(RedisKeyUtil.getSmsCodeKey(mobile), code, 60 * 5);
                 return Result.ok(ResultCode.MOBILE_CODE_SEND);
             }
         } catch (ClientException e) {
             throw new BusinessException(ResultCode.SMS_CODE_SEND_ERROR);
         }
+    }
+
+
+    public Result TestSendSms(String mobile) {
+        redis.set(RedisKeyUtil.getSmsCodeKey(mobile), "123456", 60 * 5);
+        return Result.ok(ResultCode.MOBILE_CODE_SEND);
     }
 }

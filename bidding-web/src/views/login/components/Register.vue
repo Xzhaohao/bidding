@@ -19,7 +19,14 @@
       <el-input v-model="registerForm.password2" placeholder="确认密码" type="password" show-password/>
     </el-form-item>
 
-    <el-button size="large" type="primary" style="width: 100%;">注册</el-button>
+    <el-button
+        @click="handleRegister(registerFormRef)"
+        size="large" type="primary"
+        style="width: 100%;"
+        :loading="loading"
+    >
+      注册
+    </el-button>
 
     <div class="accept">
       <el-checkbox v-model="accept" label="阅读并接受"/>
@@ -36,8 +43,8 @@ import type { FormInstance } from 'element-plus'
 import { registerForm, registerRules } from './validators-register'
 // 获取短信验证码相关
 import { getSmsCode, smsCountDown, smsBtnDisable } from './useRegisterSms'
-
-const accept = ref(false)
+// 注册相关
+import { handleRegister, accept, loading } from './useRegisterHandle'
 
 const registerFormRef = ref<FormInstance>()
 </script>

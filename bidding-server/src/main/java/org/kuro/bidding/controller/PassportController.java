@@ -202,8 +202,9 @@ public class PassportController {
         }
 
         redis.setnx60s(redisIpKey, ip);
-        // 生成验证码，验证码保存十分钟
-        String random = (int) ((Math.random() * 9 + 1) * 100000) + "";
-        return smsUtils.sendSMS(bo.getMobile(), random);
+        // 生成验证码，验证码保存5分钟
+        // String random = (int) ((Math.random() * 9 + 1) * 100000) + "";
+        // return smsUtils.sendSMS(bo.getMobile(), random);
+        return smsUtils.TestSendSms(bo.getMobile());
     }
 }

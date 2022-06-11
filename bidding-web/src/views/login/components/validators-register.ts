@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { RegisterFormRules, validatePassword, validateMobile, validateSmsCode } from './validators'
 
-interface RegisterFormData {
+export interface RegisterFormData {
   company: string;
   mobile: string;
   code: string;
