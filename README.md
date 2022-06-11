@@ -4,6 +4,10 @@ Spring Boot2 + Vue3构建的**招投标平台**。
 
 ### 大致页面
 
+- 采购公示
+
+![采购公示](https://kuro-blog.oss-cn-guangzhou.aliyuncs.com/2022/06/4.png)
+
 - 首页1
 
 ![首页1](https://kuro-blog.oss-cn-guangzhou.aliyuncs.com/2022/06/1.png)
@@ -15,10 +19,6 @@ Spring Boot2 + Vue3构建的**招投标平台**。
 - 首页3
 
 ![首页3](https://kuro-blog.oss-cn-guangzhou.aliyuncs.com/2022/06/3.png)
-
-- 采购公示
-
-![采购公示](https://kuro-blog.oss-cn-guangzhou.aliyuncs.com/2022/06/4.png)
 
 - 采购需求
 
