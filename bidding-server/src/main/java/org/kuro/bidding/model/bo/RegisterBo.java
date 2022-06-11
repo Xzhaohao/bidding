@@ -13,7 +13,6 @@ import javax.validation.constraints.Pattern;
 public class RegisterBo {
 
     @NotBlank(message = "企业名称不能为空！")
-    @Range(min = 1, max = 30, message = "长度在1-30之间！")
     @ApiModelProperty(value = "企业名称")
     private String company;
 
@@ -24,15 +23,13 @@ public class RegisterBo {
     private String mobile;
 
 
-    @Pattern(regexp = "^(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)[\\da-zA-z]{6,16}$",
-            message = "密码至少包含数字，大、小写字母中的2种，且长度在6-16位之间！")
+    // 前端加密之后的密码不符合正则条件
+    // @Pattern(regexp = "^(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)[\\da-zA-z]{6,16}$", message = "密码至少包含数字，大、小写字母中的2种，且长度在6-16位之间！")
     @NotBlank(message = "密码不能为空！")
     @ApiModelProperty(value = "密码")
     private String password;
 
 
-    @Pattern(regexp = "^(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)[\\da-zA-z]{6,16}$",
-            message = "密码至少包含数字，大、小写字母中的2种，且长度在6-16位之间！")
     @NotBlank(message = "确认密码不能为空！")
     @ApiModelProperty(value = "确认密码")
     private String password2;

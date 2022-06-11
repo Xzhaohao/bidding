@@ -15,12 +15,12 @@ export const purchaseTypes = ['全部', '软件类（成品）', '硬件类', '�
 
 // 资料下载
 export const fileArr = [
-  '蒼の彼方のフォーリズム Perfect Edition',
-  '蒼の彼方のフォーリズム EXTRA1',
-  '蒼の彼方のフォーリズム Vocal & Sound Collection',
-  '蒼の彼方のフォーリズム EXTRA1 Vocal & Sound Collection',
-  '恋と選挙とチョコレート Original Soundtrack',
-  '特典音楽CD [ crossing way / rays of the sun / The absolute〜空域の支配者〜 ] を収録'
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目',
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目',
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目',
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目',
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目',
+  '2022年郴州、永州高速养护工程标线热熔涂料采购项目'
 ]
 
 // 国际化
@@ -30,6 +30,7 @@ export const LANG = 'language'
 export const MENU = 'home_menu'
 
 export const TOKEN = 'token'
+export const USER_INFO = 'user_info'
 
 // token时间戳
 export const TIME_STAMP = 'timeStamp'

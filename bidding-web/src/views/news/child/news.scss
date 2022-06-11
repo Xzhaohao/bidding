@@ -1,5 +1,6 @@
 .news-warp {
   @include com-warp;
+  flex: 1;
 
   > h2 {
     @include com-title;

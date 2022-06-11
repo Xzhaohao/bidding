@@ -3,6 +3,8 @@ import { registerForm } from './validators-register'
 import type { FormInstance } from 'element-plus'
 import { registerApi } from '../../../api/user'
 import { ElMessage } from 'element-plus'
+// @ts-ignore
+import md5 from 'md5'
 
 const accept = ref(false)
 const loading = ref(false)
@@ -15,7 +17,9 @@ const handleRegister = (registerFormEl: FormInstance | undefined) => {
     if (!accept.value) return ElMessage.warning('请勾选协议!')
 
     loading.value = true
-    const { data } = await registerApi(registerForm.value)
+    const { mobile, company, password, password2, code } = registerForm.value
+    // 密码经过md5加密后再传到后台
+    const data: any = await registerApi({ mobile, company, code, password: md5(password), password2: md5(password2) })
     loading.value = false
     if (data.status) {
       ElMessage.success(data.message)

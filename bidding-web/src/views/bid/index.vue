@@ -46,7 +46,7 @@ import Pagination from '@/components/Pagination/index.vue'
 import { ref } from 'vue'
 
 const dataTest = ref({
-  title: '中国—东盟信息港股份有限公司新大楼办公场所工位扩容强弱电改造采购项目',
+  title: 'XX科技股份有限公司新大楼办公场所工位扩容强弱电改造采购项目',
   no: '0747-2260SCCGX089',
   bidType: '竞争性谈判',
   pushTime: '2022-05-31 09:00:00',

@@ -1,6 +1,6 @@
 import { fetchUserInfoApi, loginApi, logoutApi } from '../../api/user'
 import { getItem, removeAll, setItem } from '../../utils/storage'
-import { TOKEN } from '../../constant'
+import { TOKEN, USER_INFO } from '../../constant'
 import { setTimeStamp } from '../../utils/auth'
 // @ts-ignore
 import md5 from 'md5'
@@ -11,7 +11,7 @@ export default {
   namespaced: true,
   state: () => ({
     token: getItem(TOKEN) || '',
-    userInfo: {}
+    userInfo: getItem(USER_INFO) || {}
   }),
   mutations: {
     setToken(state: any, token: string) {
@@ -19,7 +19,8 @@ export default {
       setItem(TOKEN, token)
     },
     setUserInfo(state: any, userInfo: object) {
-      state.userInfo = userInfo
+      state.userInfo = JSON.stringify(userInfo)
+      setItem(USER_INFO, JSON.stringify(userInfo))
     }
   },
   actions: {
@@ -29,13 +30,13 @@ export default {
         // 登陆请求动作
         loginApi({ mobile, password: md5(password), code, key })
           .then(({ data }) => {
-            if (data.status) {
-              // @ts-ignore
-              this.commit('user/setToken', data.data.token)
-              router.push('/')
-              // 保存登陆时间
-              setTimeStamp()
-            }
+            // @ts-ignore
+            this.commit('user/setToken', data.token)
+            // @ts-ignore
+            this.commit('user/setUserInfo', data.user)
+            router.push('/')
+            // 保存登陆时间
+            setTimeStamp()
             resolve()
           })
           .catch(err => reject(err))

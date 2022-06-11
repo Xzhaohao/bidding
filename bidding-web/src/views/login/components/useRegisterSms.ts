@@ -15,26 +15,24 @@ const getSmsCode = async (registerFormEl: FormInstance | undefined) => {
     if (!valid) return
 
     const mobile = registerForm.value.mobile
-    const { data } = await fetchSmsCodeApi({ mobile })
-    if (data.status) {
-      // 禁用获取验证码按钮
-      smsBtnDisable.value = true
-      ElMessage.success(data.message)
+    const data: any = await fetchSmsCodeApi({ mobile })
+    // 禁用获取验证码按钮
+    smsBtnDisable.value = true
+    ElMessage.success(data.message)
 
-      // 一分钟倒计时
-      let authTime = 60
-      if (authTime > 0) {
-        const timer = setInterval(() => {
-          authTime--
-          smsCountDown.value = authTime + ' S'
-          if (authTime <= 0) {
-            smsBtnDisable.value = false
-            authTime = 60
-            smsCountDown.value = '获取短信验证码'
-            clearInterval(timer)
-          }
-        }, 1000)
-      }
+    // 一分钟倒计时
+    let authTime = 60
+    if (authTime > 0) {
+      const timer = setInterval(() => {
+        authTime--
+        smsCountDown.value = authTime + ' S'
+        if (authTime <= 0) {
+          smsBtnDisable.value = false
+          authTime = 60
+          smsCountDown.value = '获取短信验证码'
+          clearInterval(timer)
+        }
+      }, 1000)
     }
   })
 }

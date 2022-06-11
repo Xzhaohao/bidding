@@ -1,6 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { ElMessage } from 'element-plus'
+import store from '../store'
 import NProgress from 'nprogress'
+import { isTimeOut } from './auth'
 
 const request = axios.create({
   baseURL: process.env.baseURL,
@@ -14,17 +16,31 @@ const request = axios.create({
 
 request.interceptors.request.use((config: AxiosRequestConfig) => {
   NProgress.start()
-  const token = window.sessionStorage.getItem('token')
-  if (token) config.headers!.Authorization = token
+  if (store.getters.token) {
+    // 登陆超时
+    if (isTimeOut()) {
+      store.dispatch('user/logout').then()
+      return Promise.reject(new Error('token 失效了!'))
+    }
+    config.headers!.Authorization = store.getters.token
+  }
   return config
 }, error => Promise.reject(error))
 
-request.interceptors.response.use((config: AxiosResponse) => {
-  if (!config.data.status) {
-    ElMessage.error(config.data.message || '服务器端异常！')
-  }
+request.interceptors.response.use((response: AxiosResponse) => {
   NProgress.done()
-  return config
+
+  const { status, message, code } = response.data
+  if (status) {
+    return response.data
+  } else {
+    // 577: 令牌过期 ｜ 被挤下线 ｜ 在另一台设备登陆
+    if (code === 577) {
+      store.dispatch('user/logout').then()
+    }
+    ElMessage.error(message || '服务器端异常！')
+    return Promise.reject(new Error(message))
+  }
 }, error => {
   if (!error.response) {
     ElMessage.error('服务器连接失败，请稍后重试！')

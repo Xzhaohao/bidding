@@ -13,7 +13,9 @@
       <el-menu-item index="help">{{ $t('header.help') }}</el-menu-item>
       <el-menu-item index="login?type=1" v-if="!store.getters.hasUserInfo">{{ $t('header.login') }}</el-menu-item>
       <el-menu-item index="login?type=2" v-if="!store.getters.hasUserInfo">{{ $t('header.register') }}</el-menu-item>
-      <el-menu-item index="company" v-if="store.getters.hasUserInfo">星海科技</el-menu-item>
+      <el-menu-item index="customer" v-if="store.getters.hasUserInfo">
+        {{ store.getters.userInfo.company }}
+      </el-menu-item>
     </el-menu>
 
     <el-dialog v-model="langChangeVisible" width="50%">
