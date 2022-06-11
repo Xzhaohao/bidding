@@ -17,6 +17,12 @@ export const fetchUserInfoApi = () => request({
   url: '/user/profile'
 })
 
+// 获取短信验证码
+export const fetchSmsCodeApi = () => request({
+  url: '/pub/passport/sms',
+  method: 'POST'
+})
+
 // 退出登陆
 export const logoutApi = () => request({
   url: '/user/logout',

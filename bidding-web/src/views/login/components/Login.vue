@@ -27,7 +27,7 @@
     </div>
 
     <el-button
-        @click="login"
+        @click="login(loginFormRef)"
         size="large" type="primary"
         style="width: 100%;"
         :loading="loading"
@@ -39,33 +39,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStore } from 'vuex'
+import type { FormInstance } from 'element-plus'
 import { loginForm, loginRules } from './validators-login'
 // 验证码相关
-import { changeImageCode, imgCode, uuid } from './useLoginCode'
+import { changeImageCode, imgCode } from './useLoginCode'
+// 登陆相关
+import { login, loading } from './useLoginHandle'
+
 changeImageCode()
 
-// 登陆操作
-const store = useStore()
-const loginFormRef = ref(null)
-const loading = ref(false)
-const login = () => {
-  // @ts-ignore
-  loginFormRef.value.validate((valid: boolean) => {
-    if (!valid) return
-
-    loading.value = true
-    const key = uuid.value
-    store.dispatch('user/login', { key, ...loginForm.value })
-      .then(() => {
-        loading.value = false
-      })
-      .catch(err => {
-        console.log(err)
-        loading.value = false
-      })
-  })
-}
+const loginFormRef = ref<FormInstance>()
 </script>
 
 <style scoped lang="scss">

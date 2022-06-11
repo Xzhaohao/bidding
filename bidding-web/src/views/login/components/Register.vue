@@ -9,7 +9,7 @@
     <el-form-item prop="code">
       <div class="sms-code">
         <el-input v-model="registerForm.code" placeholder="短信验证码"/>
-        <el-button type="primary">获取短信验证码</el-button>
+        <el-button @click="getSmsCode(registerFormRef)" :disabled="smsBtnDisable" type="primary">{{ smsCountDown }}</el-button>
       </div>
     </el-form-item>
     <el-form-item prop="password">
@@ -32,9 +32,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { FormInstance } from 'element-plus'
 import { registerForm, registerRules } from './validators-register'
+// 获取短信验证码相关
+import { getSmsCode, smsCountDown, smsBtnDisable } from './useRegisterSms'
 
 const accept = ref(false)
+
+const registerFormRef = ref<FormInstance>()
 </script>
 
 <style scoped lang="scss">
