@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import SidebarMenu from './SidebarMenu'
+import SidebarMenu from './SidebarMenu.vue'
 
 // logo高度
 const logoHeight = 44

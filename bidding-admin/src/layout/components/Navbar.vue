@@ -40,11 +40,11 @@
 import { useStore } from 'vuex'
 import Hamburger from './hamburger'
 import Breadcrumb from './breadcrumb'
-import LangSelect from '../../components/langSelect'
-import ThemePicker from '../../components/themeSelect'
-import ScreenFull from '../../components/screenfull'
-import HeadSearch from '../../components/headSearch'
-import Guide from '../../components/guide'
+import LangSelect from '@/components/langSelect'
+import ThemePicker from '@/components/themeSelect'
+import ScreenFull from '@/components/screenfull'
+import HeadSearch from '@/components/headSearch'
+import Guide from '@/components/guide'
 
 // 退出登陆
 const store = useStore()

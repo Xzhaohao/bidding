@@ -19,7 +19,15 @@ module.exports = defineConfig({
       Components({
         resolvers: [ElementPlusResolver()]
       })
-    ]
+    ],
+    resolve: {
+      alias: {
+        '@': resolve('src')
+      },
+      fallback: {
+        path: require.resolve('path-browserify')
+      }
+    }
   },
   devServer: {
     port: 3000,

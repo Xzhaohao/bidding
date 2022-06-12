@@ -16,7 +16,7 @@
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { filterRoutes, generateMenus } from '@/utils/route'
-import SidebarItem from './SidebarItem'
+import SidebarItem from './SidebarItem.vue'
 
 // 路由信息
 const router = useRouter()
