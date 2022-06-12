@@ -1,8 +1,8 @@
 <template>
   <el-dialog title='提示' :model-value='modelValue' @close='closed' width='22%'>
     <div class='content'>
-      <p>{{$t('theme.themeColorChange')}}</p>
-      <el-color-picker v-model='mColor' :predefine='predefineColors' />
+      <p>{{ $t('theme.themeColorChange') }}</p>
+      <el-color-picker v-model='mColor' :predefine='predefineColors'/>
     </div>
     <template #footer>
       <el-button @click='closed'>{{ $t('universal.cancel') }}</el-button>

@@ -71,7 +71,6 @@ defineProps({
 
       a {
         display: block;
-        color: #333;
         width: 80px;
         height: 80px;
         background: rgba(255, 255, 255, 0.3);

@@ -24,8 +24,8 @@ service.interceptors.request.use((config: AxiosRequestConfig) => {
 
 service.interceptors.response.use((response: AxiosResponse) => {
   NProgress.done()
-  const { success, message, data, code } = response.data
-  if (success) {
+  const { status, message, data, code } = response.data
+  if (status) {
     return data
   } else {
     if (code === 577) {

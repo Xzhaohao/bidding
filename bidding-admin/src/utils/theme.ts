@@ -1,9 +1,7 @@
-// @ts-ignore
-import formula from '@/constant/formula.json'
-// @ts-ignore
-import color from 'css-color-function'
 import rgbHex from 'rgb-hex'
 import axios from 'axios'
+const formula = require('@/constant/formula.json')
+const color = require('css-color-function')
 
 // 把生成的样式表写入到 style 中
 export const writeNewStyle = (newStyle: any) => {

@@ -7,8 +7,8 @@ export interface LoginFormData {
 }
 
 export const loginForm = ref<LoginFormData>({
-  username: 'admin',
-  password: 'x123456'
+  username: 'liella',
+  password: 'liella123'
 })
 
 interface LoginFormRules {
