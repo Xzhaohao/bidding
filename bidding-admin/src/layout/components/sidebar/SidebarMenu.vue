@@ -1,18 +1,18 @@
 <template>
   <el-menu
-    :collapse='!$store.getters.sidebarOpened'
-    :unique-opened='true'
-    :default-active='activeMenu'
-    :active-text-color='$store.getters.cssVar.menuActiveText'
-    :background-color='$store.getters.cssVar.menuBg'
-    :text-color='$store.getters.cssVar.menuText'
+    :collapse="!$store.getters.sidebarOpened"
+    :unique-opened="true"
+    :default-active="activeMenu"
+    :active-text-color="$store.getters.cssVar.menuActiveText"
+    :background-color="$store.getters.cssVar.menuBg"
+    :text-color="$store.getters.cssVar.menuText"
     router
   >
-    <sidebar-item v-for='item in routes' :key='item.path' :route='item' />
+    <sidebar-item v-for="item in routes" :key="item.path" :route="item" />
   </el-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { filterRoutes, generateMenus } from '@/utils/route'

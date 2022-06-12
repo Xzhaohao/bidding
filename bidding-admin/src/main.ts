@@ -7,6 +7,8 @@ import i18n from './i18n'
 // Element-Plus
 import ElementPlus, { ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
+// Element-Plus icon
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // 路由鉴权
 import './permission'
@@ -22,6 +24,10 @@ const app = createApp(App)
 app.config.globalProperties.$message = ElMessage
 
 installIcons(app)
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
 
 app.use(router)
   .use(store)

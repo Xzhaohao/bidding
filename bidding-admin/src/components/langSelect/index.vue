@@ -1,13 +1,9 @@
 <template>
-  <el-dropdown
-    trigger='click'
-    class='international'
-    @command='handleSetLanguage'
-  >
+  <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
     <div>
-      <el-tooltip :content="$t('navBar.lang')" :effect='effect'>
-        <span id='guide-lang'>
-          <svg-icon icon='language' />
+      <el-tooltip :content="$t('navBar.lang')" :effect="effect">
+        <span id="guide-lang">
+          <svg-icon icon="language"/>
         </span>
       </el-tooltip>
     </div>

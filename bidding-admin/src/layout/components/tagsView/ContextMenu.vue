@@ -12,7 +12,7 @@
   </ul>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'

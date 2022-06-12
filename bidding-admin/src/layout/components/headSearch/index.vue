@@ -1,8 +1,10 @@
 <template>
-  <div class='head-search' :class='{ show: isShow }'>
-    <span id="guide-search" @click.stop="onShowClick">
-      <svg-icon class-name="search-icon" icon="search" />
-    </span>
+  <div class="head-search" :class="{ show: isShow }" id="guide-search">
+    <el-tooltip :content="$t('navBar.headerSearch')">
+      <span @click.stop="onShowClick">
+        <svg-icon class-name="search-icon" icon="search" />
+      </span>
+    </el-tooltip>
 
     <el-select
       ref="headSearchSelectRef"
@@ -16,16 +18,16 @@
       @change="onSelectChange"
     >
       <el-option
-        v-for='op in searchOptions'
-        :key='op.item.path'
-        :label='op.item.title.join(" > ")'
-        :value='op.item'
+        v-for="op in searchOptions"
+        :key="op.item.path"
+        :label="op.item.title.join(' > ')"
+        :value="op.item"
       />
     </el-select>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { filterRoutes } from '@/utils/route'
@@ -41,8 +43,8 @@ let searchPool = computed(() => {
 })
 
 // 搜索库相关
-let fuse
-const initFuse = searchPool => {
+let fuse: Fuse<unknown>
+const initFuse = (searchPool: readonly unknown[]) => {
   fuse = new Fuse(searchPool, {
     // 是否按优先级进行排序
     shouldSort: true,
@@ -68,9 +70,9 @@ const onShowClick = () => {
 // 搜索方法
 const search = ref('')
 // 搜索结果
-const searchOptions = ref([])
+const searchOptions: any = ref([])
 // 搜索方法
-const querySearch = query => {
+const querySearch = (query: string) => {
   if (query !== '') {
     searchOptions.value = fuse.search(query)
   } else {
@@ -79,7 +81,7 @@ const querySearch = query => {
 }
 
 // 选中回调
-const onSelectChange = val => {
+const onSelectChange = (val: any) => {
   router.push(val.path)
 }
 
@@ -93,7 +95,7 @@ watch(isShow, (val) => {
 })
 
 // 关闭 search 的处理事件
-const headSearchSelectRef = ref(null)
+const headSearchSelectRef: any = ref(null)
 const onClose = () => {
   headSearchSelectRef.value.blur()
   isShow.value = false
@@ -111,41 +113,5 @@ watchSwitchLang(() => {
 </script>
 
 <style lang="scss" scoped>
-.head-search {
-  font-size: 0 !important;
-
-  ::v-deep .search-icon {
-    cursor: pointer;
-    font-size: 18px;
-    vertical-align: middle;
-  }
-
-  .head-search-select {
-    font-size: 18px;
-    transition: width 0.2s;
-    width: 0;
-    overflow: hidden;
-    background: transparent;
-    border-radius: 0;
-    display: inline-block;
-    vertical-align: middle;
-
-    ::v-deep .el-input__inner {
-      border-radius: 0;
-      border: 0;
-      padding-left: 0;
-      padding-right: 0;
-      box-shadow: none !important;
-      border-bottom: 1px solid #d9d9d9;
-      vertical-align: middle;
-    }
-  }
-
-  &.show {
-    .head-search-select {
-      width: 210px;
-      margin-left: 10px;
-    }
-  }
-}
+@import "index";
 </style>

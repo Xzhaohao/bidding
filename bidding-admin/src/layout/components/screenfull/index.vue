@@ -1,5 +1,5 @@
 <template>
-  <div @click='onToggle'>
+  <div @click="onToggle">
     <el-tooltip :content="$t('navBar.screenfull')">
       <span id="guide-full">
         <svg-icon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" />
@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import screenFull from 'screenfull'
 

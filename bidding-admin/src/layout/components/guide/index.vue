@@ -8,14 +8,14 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
 import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import steps from './steps'
 
-let driver = null
+let driver: Driver | null = null
 const i18n = useI18n()
 
 onMounted(() => {
@@ -29,7 +29,7 @@ onMounted(() => {
 })
 
 const onClick = () => {
-  driver.defineSteps(steps(i18n))
-  driver.start()
+  driver?.defineSteps(steps(i18n))
+  driver?.start()
 }
 </script>

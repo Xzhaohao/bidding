@@ -1,34 +1,34 @@
 <template>
-  <div class='navbar'>
+  <div class="navbar">
     <!-- 左侧折叠菜单 -->
-    <hamburger class='hamburger-container' />
+    <hamburger class="hamburger-container"/>
     <!-- 面包屑 -->
-    <breadcrumb id="guide-breadcrumb" class='breadcrumb-container' />
+    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container"/>
 
-    <div class='right-menu'>
+    <div class="right-menu">
       <!-- 功能引导 -->
       <guide class="right-menu-item hover-effect"></guide>
       <!-- 页面搜索 -->
-      <head-search class='right-menu-item hover-effect' />
+      <head-search class="right-menu-item hover-effect"/>
       <!-- 全屏 -->
-      <screen-full class='right-menu-item hover-effect' />
+      <screen-full class="right-menu-item hover-effect"/>
       <!-- 换肤 -->
-      <theme-picker class='right-menu-item hover-effect' />
+      <theme-picker class="right-menu-item hover-effect"/>
       <!-- 国际化 -->
-      <lang-select class='right-menu-item hover-effect' />
+      <lang-select class="right-menu-item hover-effect"/>
 
       <!-- 头像 -->
-      <el-dropdown class='avatar-container' trigger='click'>
-        <div class='avatar-wrapper'>
-          <el-avatar shape='square' :size='40' :src='$store.getters.userInfo.avatar' />
-          <i class='el-icon-s-tools'></i>
+      <el-dropdown class="avatar-container" trigger="click">
+        <div class="avatar-wrapper">
+          <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"/>
+          <el-icon><Tools /></el-icon>
         </div>
         <template #dropdown>
-          <el-dropdown-menu class='user-dropdown'>
-            <router-link to='/'>
-              <el-dropdown-item>{{$t("navBar.home")}}</el-dropdown-item>
+          <el-dropdown-menu class="user-dropdown">
+            <router-link to="/">
+              <el-dropdown-item>{{ $t('navBar.home') }}</el-dropdown-item>
             </router-link>
-            <el-dropdown-item divided @click='logout'>{{$t("navBar.logout")}}</el-dropdown-item>
+            <el-dropdown-item divided @click='logout'>{{ $t('navBar.logout') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -36,15 +36,15 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useStore } from 'vuex'
-import Hamburger from './hamburger'
-import Breadcrumb from './breadcrumb'
-import LangSelect from '@/components/langSelect'
-import ThemePicker from '@/components/themeSelect'
-import ScreenFull from '@/components/screenfull'
-import HeadSearch from '@/components/headSearch'
-import Guide from '@/components/guide'
+import Hamburger from './hamburger/index.vue'
+import Breadcrumb from './breadcrumb/index.vue'
+import HeadSearch from './headSearch/index.vue'
+import ThemePicker from './themeSelect/index.vue'
+import Guide from './guide/index.vue'
+import ScreenFull from './screenfull/index.vue'
+import LangSelect from '../../components/langSelect/index.vue'
 
 // 退出登陆
 const store = useStore()
@@ -52,60 +52,5 @@ const logout = () => store.dispatch('user/logout', 1)
 </script>
 
 <style lang='scss' scoped>
-.navbar {
-  height: 50px;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
-  .breadcrumb-container {
-    float: left;
-  }
-
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    // hover 动画
-    transition: background 0.5s;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.1);
-    }
-  }
-  .right-menu {
-    display: flex;
-    align-items: center;
-    float: right;
-    padding-right: 16px;
-
-    ::v-deep .right-menu-item {
-      display: inline-block;
-      padding: 0 18px 0 0;
-      font-size: 24px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-      }
-    }
-
-    ::v-deep .avatar-container {
-      cursor: pointer;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .el-avatar {
-          --el-avatar-background-color: none;
-          margin-right: 12px;
-        }
-      }
-    }
-  }
-}
+@import "Navbar";
 </style>

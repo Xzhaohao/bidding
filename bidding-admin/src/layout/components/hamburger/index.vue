@@ -1,12 +1,12 @@
 <template>
-  <div class='hamburger-container' @click='toggleClick'>
+  <div class="hamburger-container" @click="toggleClick">
     <span id="guide-hamburger">
-      <svg-icon class='hamburger' :icon='icon' />
+      <svg-icon class="hamburger" :icon="icon" />
     </span>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 
@@ -16,7 +16,7 @@ const icon = computed(() => store.getters.sidebarOpened ? 'hamburger-opened' : '
 const toggleClick = () => store.commit('app/triggerSidebarOpened')
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .hamburger-container {
   padding: 0 16px;
 

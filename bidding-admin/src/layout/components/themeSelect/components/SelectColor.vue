@@ -1,17 +1,17 @@
 <template>
-  <el-dialog title='提示' :model-value='modelValue' @close='closed' width='22%'>
-    <div class='content'>
+  <el-dialog title="提示" :model-value="modelValue" @close="closed" width="22%">
+    <div class="content">
       <p>{{ $t('theme.themeColorChange') }}</p>
-      <el-color-picker v-model='mColor' :predefine='predefineColors'/>
+      <el-color-picker v-model='mColor' :predefine="predefineColors"/>
     </div>
     <template #footer>
       <el-button @click='closed'>{{ $t('universal.cancel') }}</el-button>
-      <el-button type='primary' @click='confirm'>{{ $t('universal.confirm') }}</el-button>
+      <el-button type="primary" @click="confirm">{{ $t('universal.confirm') }}</el-button>
     </template>
   </el-dialog>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { defineProps, defineEmits, ref } from 'vue'
 import { useStore } from 'vuex'
 import { generateNewStyle, writeNewStyle } from '@/utils/theme'
