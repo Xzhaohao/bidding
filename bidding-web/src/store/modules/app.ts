@@ -15,6 +15,9 @@ export default {
     },
     // 设置当前选择的菜单
     setSelectedMenu(state: any, menu: string) {
+      if (menu.includes('news')) {
+        menu = 'news'
+      }
       setItem(MENU, menu)
       state.selectedMenu = menu
     }
