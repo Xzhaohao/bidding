@@ -6,10 +6,10 @@ import tk.mybatis.mapper.common.Mapper;
 public interface UserMapper extends Mapper<User> {
 
     /**
-     * 根据用户名查询用户
+     * 根据手机号查询用户
      *
-     * @param username 用户名
+     * @param mobile 手机号
      * @return 用户对象
      */
-    User selectUserByUsername(String username);
+    User selectUserByMobile(String mobile);
 }

@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User queryUserByUsername(String username) {
-        return userMapper.selectUserByUsername(username);
+    public User queryUserByMobile(String mobile) {
+        return userMapper.selectUserByMobile(mobile);
     }
 
 

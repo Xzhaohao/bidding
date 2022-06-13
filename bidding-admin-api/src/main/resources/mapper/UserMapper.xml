@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.kuro.bidding.mapper.UserMapper">
 
-    <select id="selectUserByUsername" resultType="org.kuro.bidding.model.entity.User">
-        select id, username, password, avatar, status, create_time, update_time
+    <select id="selectUserByMobile" resultType="org.kuro.bidding.model.entity.User">
+        select id, name, mobile, password, gender, avatar, status, create_time, update_time
         from admin_user
-        where username = #{username};
+        where mobile = #{mobile};
     </select>
 
 </mapper>

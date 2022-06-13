@@ -5,12 +5,12 @@ import org.kuro.bidding.model.entity.User;
 public interface UserService {
 
     /**
-     * 根据用户名查询用户
+     * 根据手机号查询用户
      *
-     * @param username 用户名
+     * @param mobile 手机号
      * @return 用户对象
      */
-    User queryUserByUsername(String username);
+    User queryUserByMobile(String mobile);
 
 
     /**
