@@ -56,6 +56,12 @@ const privateRoutes: Array<RouteRecordRaw> = [
         meta: { title: 'userManage', icon: 'personnel-manage' }
       },
       {
+        path: '/sys/import',
+        name: 'userImport',
+        component: () => import('@/views/import/index.vue'),
+        meta: { title: 'excelImport' }
+      },
+      {
         path: '/sys/role',
         name: 'roleList',
         component: () => import('@/views/role-list/index.vue'),

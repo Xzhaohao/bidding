@@ -1,10 +1,9 @@
 package org.kuro.bidding.service;
 
+import org.kuro.bidding.model.bo.UserImportBo;
 import org.kuro.bidding.model.entity.User;
 import org.kuro.bidding.model.page.PageResult;
 import org.kuro.bidding.model.vo.UserVo;
-
-import java.util.List;
 
 public interface UserService {
 
@@ -34,4 +33,12 @@ public interface UserService {
      * @return 用户列表
      */
     PageResult<UserVo> queryUserByPage(Integer page, Integer limit);
+
+
+    /**
+     * 创建员工
+     *
+     * @param bo 员工参数
+     */
+    void createUser(UserImportBo bo);
 }

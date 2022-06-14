@@ -19,4 +19,10 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> allRoleList() {
         return roleMapper.selectAll();
     }
+
+
+    @Override
+    public Role queryById(String id) {
+        return roleMapper.selectByPrimaryKey(id);
+    }
 }

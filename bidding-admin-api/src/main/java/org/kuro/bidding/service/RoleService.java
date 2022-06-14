@@ -12,4 +12,13 @@ public interface RoleService {
      * @return 角色列表
      */
     List<Role> allRoleList();
+
+
+    /**
+     * 根据ID查询角色
+     *
+     * @param id 角色ID
+     * @return 角色信息
+     */
+    Role queryById(String id);
 }

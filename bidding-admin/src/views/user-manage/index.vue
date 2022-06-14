@@ -2,8 +2,8 @@
   <div class="user-manage-container">
     <el-card class="header">
       <div>
-        <el-button type="primary">{{ $t('excel.importExcel') }}</el-button>
-        <el-button type="success">{{ $t('excel.exportExcel') }}</el-button>
+        <el-button @click="onImportExcel" type="primary">{{ $t('excel.importExcel') }}</el-button>
+        <el-button @click="onExportExcel" type="success">{{ $t('excel.exportExcel') }}</el-button>
       </div>
     </el-card>
 
@@ -45,9 +45,9 @@
           <tag-status :status="row.status"/>
         </el-table-column>
         <!-- 操作 -->
-        <el-table-column :label="$t('excel.action')" fixed="right" width="230" align="center">
+        <el-table-column :label="$t('excel.action')" fixed="right" width="230" align="center" #default="{ row }">
           <el-button type="primary" size="small">{{ $t('excel.show') }}</el-button>
-          <el-button type="info" size="small">{{ $t('excel.showRole') }}</el-button>
+          <el-button @click="onShowRole(row)" type="info" size="small">{{ $t('excel.showRole') }}</el-button>
           <el-button type="danger" size="small">{{ $t('excel.remove') }}</el-button>
         </el-table-column>
       </el-table>
@@ -64,12 +64,19 @@
         layout="total, sizes, prev, pager, next, jumper"
       />
     </el-card>
+
+    <!-- 分配角色 对话框 -->
+    <roles-dialog v-model='roleDialogVisible' :role='selectUserRole' />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref, watch, onActivated } from 'vue'
+import { useRouter } from 'vue-router'
 import { gender } from '@/utils/dict'
+import { watchSwitchLang } from '@/utils/i18n'
 import TagStatus from '@/components/tag-status'
+import RolesDialog from './components/Roles.vue'
 
 import {
   loading,
@@ -83,6 +90,33 @@ import {
 } from '@/views/user-manage/useFetchUserData'
 
 fetchUserList()
+watchSwitchLang(fetchUserList)
+onActivated(fetchUserList)
+
+// 分配角色
+const selectUserRole = ref([])
+const roleDialogVisible = ref(false)
+const onShowRole = (row: any) => {
+  roleDialogVisible.value = true
+  selectUserRole.value = row.roles
+}
+
+// 每次打开dialog都可以重新获取数据
+watch(roleDialogVisible, val => {
+  if (!val) selectUserRole.value = []
+})
+
+// excel 导入按钮点击事件
+const router = useRouter()
+const onImportExcel = () => {
+  router.push('/sys/import')
+}
+
+// 导出相关
+const exportToExcelVisible = ref(false)
+const onExportExcel = () => {
+  exportToExcelVisible.value = true
+}
 </script>
 
 <style lang="scss" scoped>

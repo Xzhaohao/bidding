@@ -15,6 +15,7 @@ export default {
     cockpit: 'cockpit',
     userManage: 'EmployeeManage',
     userInfo: 'UserInfo',
+    excelImport: 'ExcelImport',
     roleList: 'RoleList',
     permissionList: 'PermissionList',
     systemDict: 'DataDict',

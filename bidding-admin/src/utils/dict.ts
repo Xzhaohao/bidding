@@ -21,3 +21,15 @@ export const gender = (g: number): string => {
       throw new Error('参数不合法')
   }
 }
+
+// 性别，1男，2女
+export const genderNum = (g: string): number => {
+  switch (g) {
+    case '男':
+      return 1
+    case '女':
+      return 2
+    default:
+      throw new Error('参数不合法')
+  }
+}

@@ -15,6 +15,7 @@ export default {
     sys: '系统管理',
     cockpit: '驾驶舱',
     userManage: '员工管理',
+    excelImport: '导入Excel',
     userInfo: '员工信息',
     roleList: '角色列表',
     permissionList: '权限列表',

@@ -3,15 +3,16 @@ package org.kuro.bidding.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.kuro.bidding.model.bo.UserImportBo;
 import org.kuro.bidding.model.page.PageResult;
 import org.kuro.bidding.model.result.Result;
 import org.kuro.bidding.model.vo.UserVo;
 import org.kuro.bidding.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
@@ -32,5 +33,15 @@ public class UserController {
     ) {
         PageResult<UserVo> result = userService.queryUserByPage(page, limit);
         return Result.ok().data(result);
+    }
+
+
+    @ApiOperation(value = "批量导入员工", notes = "Excel批量导入员工")
+    @PostMapping("/batch/import")
+    public Result batchImportUserApi(@RequestBody @Valid List<UserImportBo> bos) {
+        for (UserImportBo bo : bos) {
+            userService.createUser(bo);
+        }
+        return Result.ok();
     }
 }
