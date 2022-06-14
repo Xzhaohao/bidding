@@ -2,19 +2,23 @@ import i18n from '@/i18n'
 import { ref } from 'vue'
 
 export interface LoginFormData {
-  username: string;
+  mobile: string;
   password: string;
 }
 
 export const loginForm = ref<LoginFormData>({
-  username: 'liella',
+  mobile: '13555555555',
   password: 'liella123'
 })
 
 interface LoginFormRules {
-  username: ({
+  mobile: ({
     required: boolean;
     message: string;
+    trigger: string;
+  } | {
+    required: boolean;
+    validator: (rule: LoginFormRules, value: string, callback: Function) => void;
     trigger: string;
   })[];
 
@@ -29,6 +33,15 @@ interface LoginFormRules {
   })[];
 }
 
+export const validateMobile = (rule: LoginFormRules, value: string, callback: Function) => {
+  const regex = /^[1][3-9][0-9]{9}$/
+  if (!regex.test(value)) {
+    callback(new Error(i18n.global.t('login.mobileRule')))
+  } else {
+    callback()
+  }
+}
+
 const validatePassword = (rule: LoginFormRules, value: string, callback: Function) => {
   const regex = /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)[\da-zA-z]{6,16}$/
   if (!regex.test(value)) {
@@ -39,8 +52,9 @@ const validatePassword = (rule: LoginFormRules, value: string, callback: Functio
 }
 
 export const loginRules = ref({
-  username: [
-    { required: true, message: i18n.global.t('login.usernameRule'), trigger: 'blur' }
+  mobile: [
+    { required: true, message: i18n.global.t('login.mobileRequired'), trigger: 'blur' },
+    { required: true, trigger: 'blur', validator: validateMobile }
   ],
   password: [
     { required: true, message: i18n.global.t('login.passwordRequired'), trigger: 'blur' },

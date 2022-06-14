@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.kuro.bidding.mapper.PermissionMapper">
+
+    <resultMap id="PermissionWithChildren" type="org.kuro.bidding.model.vo.PermissionVo">
+        <id column="id" property="id"/>
+        <result column="permission_name" property="permissionName"/>
+        <result column="permission_mark" property="permissionMark"/>
+        <result column="permission_desc" property="permissionDesc"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <collection property="children" ofType="org.kuro.bidding.model.entity.Permission">
+            <id column="id2" property="id"/>
+            <result column="permission_name2" property="permissionName"/>
+            <result column="permission_mark2" property="permissionMark"/>
+            <result column="permission_desc2" property="permissionDesc"/>
+            <result column="status2" property="status"/>
+            <result column="create_time2" property="createTime"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectPermissionList" resultMap="PermissionWithChildren">
+        select p1.id,
+               p1.parent_id,
+               p1.permission_name,
+               p1.permission_mark,
+               p1.permission_desc,
+               p1.status,
+               p1.create_time,
+               p2.id              as id2,
+               p2.parent_id       as parent_id2,
+               p2.permission_name as permission_name2,
+               p2.permission_mark as permission_mark2,
+               p2.permission_desc as permission_desc2,
+               p2.status          as status2,
+               p2.create_time     as create_time2
+        from admin_permission p1,
+             admin_permission p2
+        where p1.id = p2.parent_id
+    </select>
+
+</mapper>

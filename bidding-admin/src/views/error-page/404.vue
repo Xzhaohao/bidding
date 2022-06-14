@@ -1,9 +1,15 @@
 <template>
-  <div class="">404</div>
+  <div class="not-found">
+    <img src="@/assets/404.jpeg" alt="404页面不存在！">
+  </div>
 </template>
 
-<script setup>
-import {} from 'vue'
-</script>
-
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+.not-found {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

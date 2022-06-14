@@ -20,6 +20,16 @@ const publicRoutes: Array<RouteRecordRaw> = [
         name: 'cockpit',
         component: () => import('@/views/cockpit/index.vue'),
         meta: { title: 'cockpit', icon: 'dashboard' }
+      },
+      {
+        path: '/404',
+        name: '404',
+        component: () => import('@/views/error-page/404.vue')
+      },
+      {
+        path: '/401',
+        name: '401',
+        component: () => import('@/views/error-page/401.vue')
       }
     ]
   },

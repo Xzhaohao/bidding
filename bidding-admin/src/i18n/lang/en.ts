@@ -2,10 +2,10 @@ export default {
   login: {
     title: 'User Login',
     loginBtn: 'Login',
-    usernameRule: 'Username is required',
+    mobileRule: 'Mobile is required',
     passwordRequired: 'Password is required',
     passwordRule: 'Password cannot be less than 6 digits',
-    username: 'username',
+    mobile: 'username',
     password: 'password',
     capslock: 'Caps lock is On'
   },
@@ -157,6 +157,9 @@ export default {
     index: 'Serial number',
     name: 'name',
     desc: 'describe',
+    roleCode: 'role code',
+    createTime: 'create time',
+    status: 'status',
     action: 'operate',
     assignPermissions: 'assign permissions',
     removeRole: 'Delete role',

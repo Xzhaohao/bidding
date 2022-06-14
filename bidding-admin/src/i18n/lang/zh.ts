@@ -2,10 +2,11 @@ export default {
   login: {
     title: '用户登录',
     loginBtn: '登录',
-    usernameRule: '用户名不能为空！',
+    mobileRequired: '手机号不能为空！',
     passwordRequired: '密码不能为空！',
     passwordRule: '密码至少包含数字，大、小写字母中的2种，且长度在6-16位之间！',
-    username: '用户名',
+    mobileRule: '手机号格式不正确！',
+    mobile: '手机号',
     password: '密码',
     capslock: '大写锁定已开启'
   },
@@ -154,8 +155,11 @@ export default {
   role: {
     buttonTxt: '新增角色',
     index: '序号',
-    name: '名称',
+    name: '角色名称',
     desc: '描述',
+    roleCode: '角色编码',
+    createTime: '创建时间',
+    status: '状态',
     action: '操作',
     assignPermissions: '分配权限',
     removeRole: '删除角色',

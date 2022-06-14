@@ -23,10 +23,10 @@ export default {
   },
   actions: {
     login (context: any, userInfo: any) {
-      const { username, password } = userInfo
+      const { mobile, password } = userInfo
       return new Promise((resolve, reject) => {
         // 登陆请求动作
-        loginApi({ username, password: md5(password) })
+        loginApi({ mobile, password: md5(password) })
           .then((data: any) => {
             // @ts-ignore
             this.commit('user/setToken', data.token)
