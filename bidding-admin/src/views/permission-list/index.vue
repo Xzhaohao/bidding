@@ -5,7 +5,7 @@
       <el-table-column prop="permissionMark" :label="$t('permission.mark')" width="240" align="center"/>
       <el-table-column prop="permissionDesc" :label="$t('permission.desc')" align="center"/>
       <el-table-column :label="$t('role.status')" #default="{ row }" width="120" align="center">
-        <el-tag effect="dark" :color="row.status === 1 ? '#31c27c' : '#ff5f9f'">{{ state(row.status) }}</el-tag>
+        <tag-status :status="row.status"/>
       </el-table-column>
       <el-table-column prop="createTime" :label="$t('role.createTime')" width="240" align="center"/>
     </el-table>
@@ -16,7 +16,7 @@
 import { ref } from 'vue'
 import { fetchPermissionListApi } from '@/api/auth'
 import { watchSwitchLang } from '@/utils/i18n'
-import { state } from '@/utils/dict'
+import TagStatus from '@/components/tag-status'
 
 const allPermission: any = ref([])
 const getPermissionList = async () => {
@@ -29,7 +29,5 @@ watchSwitchLang(getPermissionList)
 </script>
 
 <style lang="scss" scoped>
-:deep(.el-tag) {
-  border-color: transparent;
-}
+
 </style>

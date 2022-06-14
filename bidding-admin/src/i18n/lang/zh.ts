@@ -132,6 +132,7 @@ export default {
     exportExcel: 'excel 导出',
     exportZip: 'zip 导出',
     name: '姓名',
+    gender: '性别',
     mobile: '联系方式',
     avatar: '头像',
     role: '角色',
@@ -150,7 +151,8 @@ export default {
     importSuccess: ' 条员工数据导入成功',
     dialogTitle1: '确定要删除用户 ',
     dialogTitle2: ' 吗？',
-    roleDialogTitle: '配置角色'
+    roleDialogTitle: '配置角色',
+    loading: '加载中...'
   },
   role: {
     buttonTxt: '新增角色',

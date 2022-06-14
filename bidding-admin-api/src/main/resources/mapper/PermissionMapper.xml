@@ -36,7 +36,7 @@
                p2.create_time     as create_time2
         from admin_permission p1,
              admin_permission p2
-        where p1.id = p2.parent_id
+        where p1.id = p2.parent_id;
     </select>
 
 </mapper>

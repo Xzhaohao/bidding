@@ -1,6 +1,10 @@
 package org.kuro.bidding.service;
 
 import org.kuro.bidding.model.entity.User;
+import org.kuro.bidding.model.page.PageResult;
+import org.kuro.bidding.model.vo.UserVo;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -20,4 +24,14 @@ public interface UserService {
      * @return 用户对象
      */
     User queryUserById(String id);
+
+
+    /**
+     * 分页查询用户列表
+     *
+     * @param page  当前页
+     * @param limit 每页显示条数
+     * @return 用户列表
+     */
+    PageResult<UserVo> queryUserByPage(Integer page, Integer limit);
 }

@@ -132,6 +132,7 @@ export default {
     exportExcel: 'excel export',
     exportZip: 'zip export',
     name: 'Name',
+    gender: 'gender',
     mobile: 'contact details',
     avatar: 'Avatar',
     role: 'Role',
@@ -150,7 +151,8 @@ export default {
     importSuccess: ' Employee data imported successfully',
     dialogTitle1: 'Are you sure you want to delete the user ',
     dialogTitle2: ' Is it?',
-    roleDialogTitle: 'Configure roles'
+    roleDialogTitle: 'Configure roles',
+    loading: 'Loading...'
   },
   role: {
     buttonTxt: 'New Role',

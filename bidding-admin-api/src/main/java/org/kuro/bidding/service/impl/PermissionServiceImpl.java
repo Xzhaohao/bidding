@@ -3,7 +3,6 @@ package org.kuro.bidding.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.kuro.bidding.mapper.PermissionMapper;
-import org.kuro.bidding.model.entity.Permission;
 import org.kuro.bidding.model.page.PageResult;
 import org.kuro.bidding.model.vo.PermissionVo;
 import org.kuro.bidding.service.PermissionService;

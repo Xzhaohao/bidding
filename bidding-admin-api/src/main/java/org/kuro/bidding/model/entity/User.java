@@ -25,6 +25,9 @@ public class User {
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "性别，1男2女")
+    private Integer gender;
+
     @ApiModelProperty(value = "头像")
     private String avatar;
 

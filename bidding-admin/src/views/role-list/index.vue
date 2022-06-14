@@ -7,7 +7,7 @@
       <el-table-column prop="roleCode" :label="$t('role.roleCode')" align="center"/>
       <el-table-column prop="createTime" :label="$t('role.createTime')" align="center"/>
       <el-table-column :label="$t('role.status')" #default="{ row }" width="120" align="center">
-        <el-tag effect="dark" :color="row.status === 1 ? '#31c27c' : '#ff5f9f'">{{ state(row.status) }}</el-tag>
+        <tag-status :status="row.status"/>
       </el-table-column>
       <el-table-column :label="$t('role.action')" width="200" align="center">
         <el-button type="primary">{{ $t('role.assignPermissions') }}</el-button>
@@ -20,7 +20,7 @@
 import { ref } from 'vue'
 import { fetchRoleListApi } from '@/api/auth'
 import { watchSwitchLang } from '@/utils/i18n'
-import { state } from '@/utils/dict'
+import TagStatus from '@/components/tag-status'
 
 const allRoles: any = ref([])
 const getRoleList = async () => {

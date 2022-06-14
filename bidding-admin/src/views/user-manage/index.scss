@@ -1,0 +1,22 @@
+.user-manage-container {
+  .header {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  :deep(.avatar) {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  :deep(.el-tag) {
+    margin-right: 6px;
+  }
+
+  .el-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

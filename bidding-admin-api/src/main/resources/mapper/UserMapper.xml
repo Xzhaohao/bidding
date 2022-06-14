@@ -2,10 +2,59 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.kuro.bidding.mapper.UserMapper">
 
+    <resultMap id="UserWithRole" type="org.kuro.bidding.model.vo.UserVo">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="mobile" property="mobile"/>
+        <result column="gender" property="gender"/>
+        <result column="status" property="status"/>
+        <result column="avatar" property="avatar"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <collection property="roles" ofType="org.kuro.bidding.model.entity.Role">
+            <id column="id2" property="id"/>
+            <result column="role_name" property="roleName"/>
+            <result column="role_code" property="roleCode"/>
+            <result column="description" property="description"/>
+            <result column="status2" property="status"/>
+            <result column="create_time2" property="createTime"/>
+        </collection>
+    </resultMap>
+
     <select id="selectUserByMobile" resultType="org.kuro.bidding.model.entity.User">
-        select id, name, mobile, password, gender, avatar, status, create_time, update_time
+        select id,
+               name,
+               mobile,
+               password,
+               gender,
+               avatar,
+               status,
+               create_time,
+               update_time
         from admin_user
         where mobile = #{mobile};
+    </select>
+
+
+    <select id="queryUserByPage" resultMap="UserWithRole">
+        select u.id,
+               name,
+               mobile,
+               gender,
+               avatar,
+               u.status,
+               u.create_time,
+               u.update_time,
+               r.id          as id2,
+               r.status      as status2,
+               r.create_time as create_time2,
+               r.description,
+               r.role_name,
+               r.role_code
+        from admin_user u
+                 left join admin_user_role ur on u.id = ur.user_id
+                 left join admin_role r on ur.role_id = r.id
+        where r.status = 1
     </select>
 
 </mapper>

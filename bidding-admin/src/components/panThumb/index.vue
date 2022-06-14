@@ -8,7 +8,8 @@
     <div :style="{ backgroundImage: `url(${image})` }" class="pan-thumb"></div>
   </div>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 import { defineProps } from 'vue'
 
 defineProps({
