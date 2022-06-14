@@ -150,7 +150,7 @@ export default {
     close: '取 消',
     confirm: '导 出',
     importSuccess: ' 条员工数据导入成功',
-    dialogTitle1: '确定要删除用户 ',
+    dialogTitle1: '确定要删除员工 ',
     dialogTitle2: ' 吗？',
     roleDialogTitle: '配置角色',
     loading: '加载中...'

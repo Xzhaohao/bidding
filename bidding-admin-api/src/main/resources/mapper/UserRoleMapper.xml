@@ -2,11 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.kuro.bidding.mapper.UserRoleMapper">
 
-
     <select id="selectUserRoleByUserId" resultType="org.kuro.bidding.model.entity.UserRole">
         select id, user_id, role_id, create_time, update_time
         from admin_user_role
         where user_id = #{userId};
     </select>
+
+
+    <delete id="deleteByUserId">
+        delete from admin_user_role where user_id = #{userId}
+    </delete>
 
 </mapper>

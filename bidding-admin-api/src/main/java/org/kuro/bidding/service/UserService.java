@@ -41,4 +41,12 @@ public interface UserService {
      * @param bo 员工参数
      */
     void createUser(UserImportBo bo);
+
+
+    /**
+     * 根据ID删除员工
+     *
+     * @param id 员工ID
+     */
+    void deleteUserById(String id);
 }

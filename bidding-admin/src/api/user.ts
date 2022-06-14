@@ -12,3 +12,8 @@ export const userBatchImportApi = (data: any) => request({
   method: 'POST',
   data
 })
+
+export const deleteUserApi = (id: string) => request({
+  url: `user/delete/${id}`,
+  method: 'DELETE'
+})

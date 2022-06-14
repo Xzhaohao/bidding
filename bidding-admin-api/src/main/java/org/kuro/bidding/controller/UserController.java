@@ -1,11 +1,13 @@
 package org.kuro.bidding.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.kuro.bidding.model.bo.UserImportBo;
 import org.kuro.bidding.model.page.PageResult;
 import org.kuro.bidding.model.result.Result;
+import org.kuro.bidding.model.result.ResultCode;
 import org.kuro.bidding.model.vo.UserVo;
 import org.kuro.bidding.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,18 @@ public class UserController {
             userService.createUser(bo);
         }
         return Result.ok();
+    }
+
+
+    @ApiOperation(value = "删除员工", notes = "根据ID删除员工")
+    @DeleteMapping("/delete/{id}")
+    public Result deleteUserApi(@PathVariable(name = "id") String id) {
+        String loginId = StpUtil.getLoginIdAsString();
+        if (loginId.equals(id)) {
+            return Result.error().message("不能删除自己!");
+        }
+
+        userService.deleteUserById(id);
+        return Result.ok(ResultCode.DELETE_SUCCESS);
     }
 }

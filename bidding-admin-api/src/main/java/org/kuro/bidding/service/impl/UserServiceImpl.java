@@ -98,4 +98,13 @@ public class UserServiceImpl implements UserService {
             }
         }
     }
+
+
+    @Override
+    public void deleteUserById(String id) {
+        // 删除admin_user表的数据
+        userMapper.deleteByPrimaryKey(id);
+        // 同时删除admin_user_role表的数据
+        userRoleMapper.deleteByUserId(id);
+    }
 }

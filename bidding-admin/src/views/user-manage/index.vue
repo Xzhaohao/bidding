@@ -48,7 +48,7 @@
         <el-table-column :label="$t('excel.action')" fixed="right" width="230" align="center" #default="{ row }">
           <el-button type="primary" size="small">{{ $t('excel.show') }}</el-button>
           <el-button @click="onShowRole(row)" type="info" size="small">{{ $t('excel.showRole') }}</el-button>
-          <el-button type="danger" size="small">{{ $t('excel.remove') }}</el-button>
+          <el-button @click="onRemoveClicked(row)" type="danger" size="small">{{ $t('excel.remove') }}</el-button>
         </el-table-column>
       </el-table>
 
@@ -73,8 +73,11 @@
 <script lang="ts" setup>
 import { ref, watch, onActivated } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { gender } from '@/utils/dict'
 import { watchSwitchLang } from '@/utils/i18n'
+import { deleteUserApi } from '@/api/user'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import TagStatus from '@/components/tag-status'
 import RolesDialog from './components/Roles.vue'
 
@@ -116,6 +119,19 @@ const onImportExcel = () => {
 const exportToExcelVisible = ref(false)
 const onExportExcel = () => {
   exportToExcelVisible.value = true
+}
+
+// 删除员工
+const i18n = useI18n()
+const onRemoveClicked = (row: any) => {
+  ElMessageBox.confirm(
+    i18n.t('excel.dialogTitle1') + row.name + i18n.t('excel.dialogTitle2'),
+    { type: 'warning' }
+  ).then(async () => {
+    await deleteUserApi(row.id)
+    ElMessage.success(i18n.t('excel.removeSuccess'))
+    fetchUserList()
+  })
 }
 </script>
 
