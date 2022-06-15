@@ -175,5 +175,8 @@ export default {
     name: '权限名称',
     mark: '权限标识',
     desc: '权限描述'
+  },
+  edit: {
+    submit: '提交'
   }
 }

@@ -9,3 +9,8 @@ export const fetchRoleListApi = () => request({
 export const fetchPermissionListApi = () => request({
   url: '/auth/permission'
 })
+
+export const updateRoleApi = () => request({
+  url: '/auth/updateRole',
+  method: 'PUT'
+})

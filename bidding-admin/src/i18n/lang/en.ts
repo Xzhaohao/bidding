@@ -175,5 +175,8 @@ export default {
     name: 'Authority name',
     mark: 'Authority ID',
     desc: 'Permission description'
+  },
+  edit: {
+    submit: 'submit'
   }
 }

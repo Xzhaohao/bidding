@@ -14,4 +14,7 @@ public class UserVo extends User {
 
     @ApiModelProperty(value = "角色")
     private List<Role> roles;
+
+    @ApiModelProperty(value = "权限")
+    private UserPermission permission;
 }

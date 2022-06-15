@@ -53,7 +53,6 @@ const onConfirm = async () => {
   const { rows }: any = await fetchUserListApi({})
   // 导入工具包
   const excel = await import('@/utils/export2Excel')
-  console.log(rows)
   const data = formatJson(USER_RELATIONS, rows)
   excel.export_json_to_excel({
     // excel表头
