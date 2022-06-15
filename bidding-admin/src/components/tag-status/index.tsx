@@ -1,5 +1,5 @@
 import { defineComponent, PropType } from 'vue'
-import { state } from '@/utils/dict'
+import { state, state2 } from '@/utils/dict'
 
 export default defineComponent({
   name: 'TagStatus',
@@ -7,6 +7,10 @@ export default defineComponent({
     status: {
       type: Number as PropType<number>,
       required: true
+    },
+    state: {
+      type: Number as PropType<number>,
+      default: 1
     }
   },
   setup(props) {
@@ -16,7 +20,7 @@ export default defineComponent({
         effect="dark"
         color={props.status === 1 ? '#31c27c' : '#ff5f9f'}
       >
-        {state(props.status)}
+        {props.state === 1 ? state(props.status) : state2(Boolean(props.status))}
       </el-tag>
     }
   }

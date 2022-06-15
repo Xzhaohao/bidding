@@ -1,0 +1,30 @@
+.head-action {
+  margin-bottom: 15px;
+
+  :deep(.el-card__body) {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 20px;
+  }
+
+  .head-action-left {
+    display: flex;
+
+    span {
+      font-size: 14px;
+    }
+
+    > div {
+      margin-right: 15px;
+    }
+
+    .el-input {
+      display: inline;
+    }
+  }
+}
+
+.news-image {
+  width: 60px;
+  height: 60px;
+}

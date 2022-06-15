@@ -178,5 +178,26 @@ export default {
   },
   edit: {
     submit: 'submit'
+  },
+  dataDownload: {
+    fileName: 'fileName',
+    fileDesc: 'fileDesc',
+    fileSize: 'fileSize',
+    fileType: 'fileType',
+    remove: 'delete',
+    add: 'add'
+  },
+  policy: {
+    add: 'add',
+    title: 'title',
+    top: 'isTop',
+    sort: 'sort',
+    status: 'status',
+    publishTime: 'publishTime',
+    detail: 'detail',
+    modify: 'modify',
+    rescind: 'rescind',
+    publish: 'publish',
+    image: 'image'
   }
 }

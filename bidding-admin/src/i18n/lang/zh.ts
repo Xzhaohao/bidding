@@ -178,5 +178,26 @@ export default {
   },
   edit: {
     submit: '提交'
+  },
+  dataDownload: {
+    fileName: '资料名',
+    fileDesc: '文件描述',
+    fileSize: '文件大小',
+    fileType: '文件类型',
+    remove: '删除',
+    add: '添加'
+  },
+  policy: {
+    add: '新增',
+    title: '标题',
+    top: '是否置顶',
+    sort: '排序',
+    status: '状态',
+    publishTime: '发布时间',
+    detail: '详情',
+    modify: '修改',
+    rescind: '撤销',
+    publish: '发布',
+    image: '图片'
   }
 }
