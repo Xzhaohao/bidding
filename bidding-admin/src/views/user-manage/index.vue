@@ -65,21 +65,20 @@
       />
     </el-card>
 
+    <!-- 导出excel 对话框 -->
+    <export-excel v-model='exportToExcelVisible'/>
     <!-- 分配角色 对话框 -->
-    <roles-dialog v-model='roleDialogVisible' :role='selectUserRole' />
+    <roles-dialog v-model='roleDialogVisible' :role='selectUserRole'/>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, watch, onActivated } from 'vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import { gender } from '@/utils/dict'
 import { watchSwitchLang } from '@/utils/i18n'
-import { deleteUserApi } from '@/api/user'
-import { ElMessage, ElMessageBox } from 'element-plus'
 import TagStatus from '@/components/tag-status'
 import RolesDialog from './components/Roles.vue'
+import ExportExcel from './components/ExportExcel.vue'
 
 import {
   loading,
@@ -90,7 +89,12 @@ import {
   fetchUserList,
   handleCurrentChange,
   handleSizeChange
-} from '@/views/user-manage/useFetchUserData'
+} from './useFetchUserData'
+
+// 删除员工
+import { onRemoveClicked } from './useDeleteUser'
+// 导入导出员工
+import { exportToExcelVisible, onImportExcel, onExportExcel } from './useExportImport'
 
 fetchUserList()
 watchSwitchLang(fetchUserList)
@@ -108,31 +112,6 @@ const onShowRole = (row: any) => {
 watch(roleDialogVisible, val => {
   if (!val) selectUserRole.value = []
 })
-
-// excel 导入按钮点击事件
-const router = useRouter()
-const onImportExcel = () => {
-  router.push('/sys/import')
-}
-
-// 导出相关
-const exportToExcelVisible = ref(false)
-const onExportExcel = () => {
-  exportToExcelVisible.value = true
-}
-
-// 删除员工
-const i18n = useI18n()
-const onRemoveClicked = (row: any) => {
-  ElMessageBox.confirm(
-    i18n.t('excel.dialogTitle1') + row.name + i18n.t('excel.dialogTitle2'),
-    { type: 'warning' }
-  ).then(async () => {
-    await deleteUserApi(row.id)
-    ElMessage.success(i18n.t('excel.removeSuccess'))
-    fetchUserList()
-  })
-}
 </script>
 
 <style lang="scss" scoped>

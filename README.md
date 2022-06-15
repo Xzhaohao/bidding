@@ -2,7 +2,7 @@
 Spring Boot2 + Vue3构建的**招投标平台**。
 
 
-### 大致页面
+### 前台
 
 - 采购公示
 
@@ -39,3 +39,6 @@ Spring Boot2 + Vue3构建的**招投标平台**。
 - 注册
 
 ![注册](https://kuro-blog.oss-cn-guangzhou.aliyuncs.com/2022/06/9.png)
+
+
+### 后台管理系统
