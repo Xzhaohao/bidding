@@ -50,6 +50,14 @@
           <el-button link size="small" type="primary">{{ $t('dataDownload.remove') }}</el-button>
         </el-table-column>
       </el-table>
+
+      <!-- 分页 -->
+      <Pagination
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="20"
+        :page="1"
+        :limit="10"
+      />
     </el-card>
   </div>
 </template>
@@ -59,6 +67,7 @@ import { ref } from 'vue'
 import { articleStatus } from '@/utils/dict'
 import { Plus } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
+import Pagination from '@/components/Pagination/index.vue'
 
 const newsData = ref([
   {

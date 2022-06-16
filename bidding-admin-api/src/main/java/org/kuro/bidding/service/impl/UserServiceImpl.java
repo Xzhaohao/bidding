@@ -52,6 +52,8 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(page, limit);
         List<User> users = userMapper.selectAll();
 
+        PageInfo<User> info = new PageInfo<>(users);
+
         List<UserVo> vos = new ArrayList<>();
         for (User user : users) {
             UserVo vo = new UserVo();
@@ -66,8 +68,7 @@ public class UserServiceImpl implements UserService {
             vo.setRoles(roles);
             vos.add(vo);
         }
-
-        PageInfo<UserVo> info = new PageInfo<>(vos);
+        
         return new PageResult<>(info.getTotal(), vos);
     }
 

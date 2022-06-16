@@ -47,6 +47,15 @@
           <el-button link size="small" type="primary">{{ $t('dataDownload.remove') }}</el-button>
         </el-table-column>
       </el-table>
+
+      <!-- 分页 -->
+      <Pagination
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="20"
+        :page="page"
+        :limit="limit"
+        @pagination="() => {}"
+      />
     </el-card>
   </div>
 </template>
@@ -56,10 +65,14 @@ import { ref } from 'vue'
 import { articleStatus } from '@/utils/dict'
 import { Plus } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
+import Pagination from '@/components/Pagination/index.vue'
+
+const page = ref(1)
+const limit = ref(10)
 
 const policyData = ref([
   {
-    title: '桂市政厅撒点辣椒你的啦可能完美',
+    title: '中华人民共和国财政部令第102号《政府购买服务管理办法》',
     top: false,
     sort: 1,
     status: 2,

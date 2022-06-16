@@ -53,15 +53,15 @@
       </el-table>
 
       <!-- 分页 -->
-      <el-pagination
+      <Pagination
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total"
+        :page="page"
+        :limit="limit"
+        :page-sizes="[5, 8, 10, 20]"
+        @pagination="() => {}"
         @size-change='handleSizeChange'
         @current-change='handleCurrentChange'
-        v-model:currentPage="page"
-        v-model:page-size="limit"
-        :total="total"
-        :page-sizes="[5, 8, 10, 20]"
-        small
-        layout="total, sizes, prev, pager, next, jumper"
       />
     </el-card>
 
@@ -79,6 +79,7 @@ import { watchSwitchLang } from '@/utils/i18n'
 import TagStatus from '@/components/tag-status'
 import RolesDialog from './components/Roles.vue'
 import ExportExcel from './components/ExportExcel.vue'
+import Pagination from '@/components/Pagination/index.vue'
 
 import {
   loading,
