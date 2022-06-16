@@ -83,5 +83,11 @@ const newsData = ref([
 </script>
 
 <style scoped lang="scss">
-@import "../base-policy/index";
+@import "@/styles/head-action.scss";
+
+.news-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+}
 </style>

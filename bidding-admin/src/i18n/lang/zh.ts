@@ -185,7 +185,7 @@ export default {
     fileSize: '文件大小',
     fileType: '文件类型',
     remove: '删除',
-    add: '添加'
+    add: '上传新文件'
   },
   policy: {
     add: '新增',
@@ -199,5 +199,36 @@ export default {
     rescind: '撤销',
     publish: '发布',
     image: '图片'
+  },
+  advise: {
+    company: '建议者',
+    detail: '详情与回复'
+  },
+  expert: {
+    name: '姓名',
+    mobile: '手机号',
+    status: '入库状态',
+    enabled: '冻结',
+    attend: '出席情况',
+    out: '出库',
+    reIn: '重新入库',
+    verify: '审核',
+    reVerify: '重新审核'
+  },
+  dict: {
+    name: '名称',
+    code: '编码',
+    description: '描述',
+    status: '状态',
+    num: '编号'
+  },
+  risk: {
+    executeNo: '执行单号',
+    contractNo: '合同号',
+    reason: '异常原因',
+    feedback: '反馈人',
+    mobile: '反馈人联系方式',
+    feedbackTime: '反馈时间',
+    reply: '回复'
   }
 }

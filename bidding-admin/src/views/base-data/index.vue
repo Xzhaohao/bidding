@@ -39,11 +39,5 @@ const dataDownload = ref([
 </script>
 
 <style scoped lang="scss">
-.head-action {
-  margin-bottom: 15px;
-
-  :deep(.el-card__body) {
-    padding: 13px 20px;
-  }
-}
+@import "@/styles/head-action.scss";
 </style>

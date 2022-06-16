@@ -79,5 +79,5 @@ const noticeData = ref([
 </script>
 
 <style scoped lang="scss">
-@import "../base-policy/index";
+@import "@/styles/head-action.scss";
 </style>

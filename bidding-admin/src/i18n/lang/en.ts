@@ -199,5 +199,35 @@ export default {
     rescind: 'rescind',
     publish: 'publish',
     image: 'image'
+  },
+  advise: {
+    company: 'company',
+    detail: 'detail'
+  },
+  expert: {
+    name: 'name',
+    mobile: 'mobile',
+    status: 'status',
+    enabled: 'enabled',
+    attend: 'attend',
+    out: 'out',
+    reIn: 'reIn',
+    verify: 'verify',
+    reVerify: 'reVerify'
+  },
+  dict: {
+    name: 'name',
+    code: 'code',
+    description: 'description',
+    status: 'state',
+    num: 'num'
+  },
+  risk: {
+    executeNo: 'executeNo',
+    contractNo: 'contractNo',
+    reason: 'reason',
+    feedback: 'feedback',
+    mobile: 'mobile',
+    feedbackTime: 'feedbackTime'
   }
 }

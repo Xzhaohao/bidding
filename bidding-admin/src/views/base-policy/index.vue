@@ -83,5 +83,5 @@ const policyData = ref([
 </script>
 
 <style scoped lang="scss">
-@import "index";
+@import "@/styles/head-action.scss";
 </style>
