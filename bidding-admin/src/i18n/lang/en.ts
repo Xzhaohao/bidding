@@ -260,5 +260,16 @@ export default {
     scoreSet: 'scoreSet',
     withdraw: 'withdraw',
     put: 'put'
+  },
+  competency: {
+    company: 'company',
+    type: 'type',
+    num: 'num',
+    businessLicence: 'businessLicence',
+    creditPoints: 'creditPoints',
+    money: 'money',
+    state: 'state',
+    approval: 'approval',
+    setAllow: 'setAllow'
   }
 }

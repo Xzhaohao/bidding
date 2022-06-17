@@ -261,5 +261,16 @@ export default {
     scoreSet: '评分设置',
     withdraw: '下架',
     put: '审核上架'
+  },
+  competency: {
+    company: '企业名称',
+    type: '企业类型',
+    num: '企业规模',
+    businessLicence: '营业执照',
+    creditPoints: '信用分',
+    money: '注册资金',
+    state: '预审状态',
+    approval: '资格预审',
+    setAllow: '设置准入资格'
   }
 }

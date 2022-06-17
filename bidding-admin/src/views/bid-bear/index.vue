@@ -6,5 +6,5 @@
 </script>
 
 <style scoped lang="scss">
-
+@import "@/styles/head-action.scss";
 </style>
