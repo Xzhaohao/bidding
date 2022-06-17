@@ -29,13 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 import Pagination from '@/components/Pagination/index.vue'
-
-const dataDownload = ref([
-  { fileName: '投标说明书', fileSize: 18264, fileType: 'PDF', fileDesc: '投标说明', createTime: '2022-06-01' }
-])
+import { dataDownload } from '@/test/dataDownload'
 </script>
 
 <style scoped lang="scss">

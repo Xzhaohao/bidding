@@ -43,6 +43,7 @@ export const genderNum = (g: string): number => {
   }
 }
 
+// 新闻资讯、政策法规、成交公示状态
 export const articleStatus = (arg: number): string => {
   switch (arg) {
     case 0:
@@ -53,6 +54,22 @@ export const articleStatus = (arg: number): string => {
       return '撤销'
     case 3:
       return '删除'
+    default:
+      throw new Error('参数不合法')
+  }
+}
+
+// 专家状态
+export const expertStatus = (arg: number): string => {
+  switch (arg) {
+    case 0:
+      return '已入库'
+    case 1:
+      return '已出库'
+    case 2:
+      return '待审核'
+    case 3:
+      return '审核不通过'
     default:
       throw new Error('参数不合法')
   }

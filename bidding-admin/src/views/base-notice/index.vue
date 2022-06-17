@@ -60,22 +60,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { articleStatus } from '@/utils/dict'
 import { Plus } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
 import Pagination from '@/components/Pagination/index.vue'
-
-const noticeData = ref([
-  {
-    title: '中华人民共和国财政部令第102号《政府购买服务管理办法》',
-    top: false,
-    sort: 1,
-    status: 2,
-    publishTime: '2022-06-01',
-    createTime: '2022-06-01'
-  }
-])
+import { policyData as noticeData } from '@/test/publishList'
 </script>
 
 <style scoped lang="scss">

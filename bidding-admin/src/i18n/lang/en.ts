@@ -220,7 +220,8 @@ export default {
     code: 'code',
     description: 'description',
     status: 'state',
-    num: 'num'
+    num: 'num',
+    bitchDelete: 'bitchDelete'
   },
   risk: {
     executeNo: 'executeNo',
@@ -229,5 +230,35 @@ export default {
     feedback: 'feedback',
     mobile: 'mobile',
     feedbackTime: 'feedbackTime'
+  },
+  deposit: {
+    projectName: 'projectName',
+    method: 'method',
+    company: 'company',
+    bank: 'bank',
+    bankAccount: 'bankAccount',
+    amount: 'amount',
+    applicant: 'applicant',
+    payTime: 'payTime',
+    refundmentTime: 'refundmentTime'
+  },
+  question: {
+    supplier: 'supplier',
+    questioner: 'questioner',
+    isReply: 'isReply',
+    reply: 'reply'
+  },
+  purchase: {
+    no: 'no',
+    proType: 'proType',
+    num: 'num',
+    maxPrice: 'maxPrice',
+    endTime: 'endTime',
+    publishTime: 'publishTime',
+    status: 'status',
+    verify: 'verify',
+    scoreSet: 'scoreSet',
+    withdraw: 'withdraw',
+    put: 'put'
   }
 }

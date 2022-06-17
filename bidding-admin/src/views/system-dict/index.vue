@@ -21,7 +21,10 @@
         </div>
       </div>
 
-      <el-button type="success" :icon="Plus">{{ $t('policy.add') }}</el-button>
+      <div>
+        <el-button type="danger" :icon="Delete">{{ $t('dict.bitchDelete') }}</el-button>
+        <el-button type="success" :icon="Plus">{{ $t('policy.add') }}</el-button>
+      </div>
     </el-card>
 
     <el-card>
@@ -45,13 +48,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Plus } from '@element-plus/icons-vue'
+import { Plus, Delete } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
-
-const dictList = ref([
-  { name: '男', code: 'gender', description: '性别', status: 1, num: 1, createTime: '2022-06-01' }
-])
+import { dictList } from '@/test/dictList'
 </script>
 
 <style scoped lang="scss">

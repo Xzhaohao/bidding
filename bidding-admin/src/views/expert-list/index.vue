@@ -44,7 +44,9 @@
         <el-table-column type="index" :label="$t('role.index')" width="60" align="center"/>
         <el-table-column prop="name" :label="$t('expert.name')" align="center"/>
         <el-table-column prop="mobile" :label="$t('expert.mobile')" align="center" width="140"/>
-        <el-table-column prop="status" :label="$t('expert.status')" width="100" align="center"/>
+        <el-table-column #default="{ row }" :label="$t('expert.status')" width="100" align="center">
+          {{ expertStatus(row.status) }}
+        </el-table-column>
         <el-table-column :label="$t('expert.enabled')" #default="{ row }" width="100" align="center">
           <tag-status :status="Number(row.enabled)" :state="2"/>
         </el-table-column>
@@ -72,14 +74,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { expertStatus } from '@/utils/dict'
 import { Plus } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
 import Pagination from '@/components/Pagination/index.vue'
-
-const expertList = ref([
-  { name: '王叫兽', mobile: '13555555555', status: 1, enabled: false, createTime: '2022-06-01' }
-])
+import { expertList } from '@/test/expertList'
 </script>
 
 <style scoped lang="scss">

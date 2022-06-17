@@ -22,12 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Pagination from '@/components/Pagination/index.vue'
-
-const adviseData = ref([
-  { title: '建议把首页改一下', company: '星星信息科技有限公司', createTime: '2022-06-01' }
-])
+import { adviseData } from '@/test/adviseData'
 </script>
 
 <style scoped lang="scss">

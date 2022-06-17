@@ -220,7 +220,8 @@ export default {
     code: '编码',
     description: '描述',
     status: '状态',
-    num: '编号'
+    num: '编号',
+    bitchDelete: '批量删除'
   },
   risk: {
     executeNo: '执行单号',
@@ -230,5 +231,35 @@ export default {
     mobile: '反馈人联系方式',
     feedbackTime: '反馈时间',
     reply: '回复'
+  },
+  deposit: {
+    projectName: '项目名称',
+    method: '采购方式',
+    company: '收取单位',
+    bank: '开户行',
+    bankAccount: '开户账号',
+    amount: '保证金金额',
+    applicant: '申请人',
+    payTime: '交款日期',
+    refundmentTime: '预计退款日期'
+  },
+  question: {
+    supplier: '质疑供应商',
+    questioner: '质疑对象',
+    isReply: '是否已答复',
+    reply: '答复'
+  },
+  purchase: {
+    no: '项标序号',
+    proType: '产品类型',
+    num: '采购数量',
+    maxPrice: '最高限价',
+    endTime: '报价截止日期',
+    publishTime: '发布时间',
+    status: '上架状态',
+    verify: '审核状态',
+    scoreSet: '评分设置',
+    withdraw: '下架',
+    put: '审核上架'
   }
 }

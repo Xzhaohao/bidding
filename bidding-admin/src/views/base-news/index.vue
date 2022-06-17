@@ -46,7 +46,7 @@
           <el-button link size="small" type="primary">{{ $t('policy.detail') }}</el-button>
           <el-button link size="small" type="primary">{{ $t('policy.modify') }}</el-button>
           <el-button link size="small" type="primary" v-if="row.status === 1">{{ $t('policy.rescind') }}</el-button>
-          <el-button link size="small" type="primary" v-if="row.status === 2">{{ $t('policy.publish') }}</el-button>
+          <el-button link size="small" type="primary" v-if="row.status % 2 === 0">{{ $t('policy.publish') }}</el-button>
           <el-button link size="small" type="primary">{{ $t('dataDownload.remove') }}</el-button>
         </el-table-column>
       </el-table>
@@ -63,23 +63,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { articleStatus } from '@/utils/dict'
 import { Plus } from '@element-plus/icons-vue'
 import TagStatus from '@/components/tag-status'
 import Pagination from '@/components/Pagination/index.vue'
-
-const newsData = ref([
-  {
-    title: '桂市政厅撒点辣椒你的啦可能完美',
-    top: false,
-    sort: 1,
-    status: 2,
-    image: 'https://kuro-campus.oss-cn-shenzhen.aliyuncs.com/random-avatar/13.jpg',
-    publishTime: '2022-06-01',
-    createTime: '2022-06-01'
-  }
-])
+import { newsData } from '@/test/publishList'
 </script>
 
 <style scoped lang="scss">

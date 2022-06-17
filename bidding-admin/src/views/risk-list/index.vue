@@ -57,20 +57,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Pagination from '@/components/Pagination/index.vue'
-
-const riskList = ref([
-  {
-    executeNo: '362763677',
-    contractNo: 'XS76578',
-    reason: '商品与描述不符',
-    description: '商品与描述不符合',
-    feedback: '王勃',
-    mobile: '13478963254',
-    feedbackTime: '2022-06-10'
-  }
-])
+import { riskList } from '@/test/riskList'
 </script>
 
 <style scoped lang="scss">
