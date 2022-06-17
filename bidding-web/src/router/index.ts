@@ -75,6 +75,15 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path: '/identification',
+    name: 'Identification',
+    component: () => import('@/views/identification/index.vue'),
+    meta: {
+      title: '完善资料-招投标平台',
+      keepAlive: false
+    }
+  },
+  {
     path: '/customer',
     name: 'Customer',
     component: () => import('@/views/customer/index.vue'),

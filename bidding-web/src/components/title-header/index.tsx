@@ -12,9 +12,13 @@ export default defineComponent({
     },
     link: {
       type: String as PropType<string>,
-      required: true
+      required: false
     },
     padding: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    hidden: {
       type: Boolean as PropType<boolean>,
       default: false
     }
@@ -29,7 +33,7 @@ export default defineComponent({
         </div>
 
         {/* @ts-ignore */}
-        <el-link type="primary" href={props.link}>更多<el-icon><ArrowRight/></el-icon></el-link>
+        { props.hidden ? '' : <el-link type="primary" href={props.link}>更多<el-icon><ArrowRight/></el-icon></el-link> }
       </div>
     }
   }

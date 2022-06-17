@@ -37,6 +37,7 @@ declare module '@vue/runtime-core' {
     LangSelect: typeof import('./src/components/langSelect/index.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     Markdown: typeof import('./src/components/markdown/index.vue')['default']
+    Pagination: typeof import('./src/components/Pagination/index.vue')['default']
     PanThumb: typeof import('./src/components/panThumb/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
